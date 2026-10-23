@@ -1,4 +1,4 @@
-> **License**: 本文档受 MIT License 保护 (Copyright (c) 2026 渐行渐远)。
+> **License**: 本文档受 MIT License 保护 (Copyright (c) 2026 92609882-UX|渐行渐远)。
 > 注: 包含图片/贴图素材的部分受上游 mod (MPL-2.0, © heyitsfuzs) 约束, 详见根目录 LICENSE。
 
 # Minecraft 模组 LabPBR / PBR 材质包制作经验与流程规范
