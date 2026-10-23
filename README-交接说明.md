@@ -1,4 +1,4 @@
-> **License**: 本文档受 MIT License 保护 (Copyright (c) 2026 渐行渐远)。
+> **License**: 本文档受 MIT License 保护 (Copyright (c) 2026 92609882-UX|渐行渐远)。
 > ⚠ 本包**只含文档与脚本**，不含任何贴图图片。贴图部分受上游 mod 条款约束，详见文末「授权范围」。
 
 # PBR 材质包制作 · 交接包
