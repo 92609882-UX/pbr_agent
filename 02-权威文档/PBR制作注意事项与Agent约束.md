@@ -1,4 +1,4 @@
-> **License**: 本文档受 MIT License 保护 (Copyright (c) 2026 渐行渐远)。
+> **License**: 本文档受 MIT License 保护 (Copyright (c) 2026 92609882-UX|渐行渐远)。
 
 # PBR 制作注意事项与 Agent 约束
 
