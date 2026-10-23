@@ -1,0 +1,271 @@
+<html>
+
+<head>
+    <title> Pack Input Properties - Null-MC/PixelGraph GitHub Wiki </title>
+    <style>
+        #main {
+            max-width: 38rem;
+            margin: auto;
+            overflow-wrap: break-word;
+            min-width: 0;
+            background-color: white;
+        }
+
+        body {
+            background-image: url('/callToAction.svg');
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #header_button {
+            position: sticky;
+            top: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #header_button p {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        #header_info {
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #content,
+        #index {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #footer_info {
+            position: sticky;
+            bottom: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+        }
+
+        #footer_info .blocks {
+            background: black;
+            color: white;
+            /* outline: 1px solid blue; */
+            padding: .1em .2em;
+        }
+
+        /* Hide useless-parts of transcluded HTML */
+        .width-full.input-group {
+            display: none;
+        }
+
+        h5:nth-last-child(2) {
+            display: none;
+        }
+
+        .Box-row.wiki-more-pages-link {
+            display: none;
+        }
+
+        .filter-bar {
+            display: none;
+        }
+
+        .Box-title>.octicon {
+            display: none;
+        }
+
+        .anchor {
+            display: none;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        #main {
+            word-wrap: break-word;
+        }
+
+        .Counter {
+            background-color: lightgray;
+            border-radius: 20px;
+            padding: 0 10px;
+        }
+
+        table {
+            max-width: 100%;
+            overflow: auto;
+            width: 100%;
+            display: block;
+        }
+
+        .js-wiki-sidebar-toc-toggle-chevron-button {
+            display: none;
+        }
+
+        a.visit_url_original {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2em; /* adjust as needed */
+            max-height: 1.2em; /* should match line-height */
+            display: block;
+        }
+
+        /* White background for span */
+        /* Rounded corners */
+        /* Black border */
+        .visit_url_pillbar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+            display: block;
+            border: 1px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Broken Images */
+        img:before {
+            content: "⚠️ MISSING OR BROKEN IMAGE RENDERING ERROR: PLEASE VIEW ORIGINAL PAGE ON GITHUB.COM ⚠️";
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @font-face {
+            font-family: "color-emoji";
+            src: local("Apple Color Emoji"),
+                local("Segoe UI Emoji"),
+                local("Segoe UI Symbol"),
+                local("Noto Color Emoji");
+        }
+
+        .emoji {
+            font-family: "color-emoji";
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .visit_url_link {
+            font-size: xx-large;
+        }
+
+        .why_exist {
+            position: relative;
+            text-align: center;
+            /* italics */
+            font-style: italic;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Not used, did not want to risk non-indexing. -->
+    <!-- <meta property="og:url" content="https://github.com/Null-MC/PixelGraph/wiki/Pack-Input-Properties"> -->
+    <!-- Did not want to risk contaminating content to be indexed. -->
+    <!-- <meta property="og:description" content="not used"> -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pack Input Properties - Null-MC/PixelGraph GitHub Wiki">
+</head>
+
+<body>
+    <div id="main">
+        <nav id="header_button">
+            <p>Content mirrored for search engine indexing from:</p>
+            <div>
+                <span class="visit_url_pillbar">
+                    <a href="https://github.com/Null-MC/PixelGraph/wiki/Pack-Input-Properties" class="visit_url_original">https://github.com/Null-MC/PixelGraph/wiki/Pack-Input-Properties</a>
+                </span>
+
+            </div>
+            <div class="why_exist">
+                <a href="/">Why does this service exist?</a>
+            </div>
+        </nav>
+        <aside id="header_info">
+            <!-- Last Modified Date added around here from redirect checker-->
+        <p>📅 Last Modified: Tue, 26 Jan 2021 03:59:23 GMT</p></aside>
+        <article id="content">
+            <h1>Pack Input Properties - Null-MC/PixelGraph GitHub Wiki</h1>
+            <div id="mirrored"> <p>For PixelGraph to properly mix channel data during publishing, it must know <em>how</em> the source content channels are stored.</p>
+<h1><a href="#using-the-user-interface" aria-hidden="true" class="anchor" id="using-the-user-interface"></a>Using the User Interface</h1>
+<!-- raw HTML omitted -->
+<ul>
+<li><code>Format</code> - Allows a pre-defined texture encoding to be chosen.</li>
+<li><code>Texture</code> - The type of texture storing the channel data.</li>
+<li><code>Color</code> - The color channel of the texture where data is stored.</li>
+<li><code>Value-Min</code> - The minimum value of the <em>encoding</em> channel.</li>
+<li><code>Value-Max</code> - The maximum value of the <em>encoding</em> channel.</li>
+<li><code>Range-Min</code> - The minimum value of the <em>color</em> channel. [0-255]</li>
+<li><code>Range-Max</code> - The maximum value of the <em>color</em> channel. [0-255]</li>
+<li><code>Shift</code> - The amount to shift the value of the <em>color</em> channel.</li>
+<li><code>Perceptual</code> - When enabled, converts the linear value to a perceptual value.</li>
+<li><code>Invert</code> - When enabled, inverts the value of the <em>encoding</em> channel.</li>
+</ul>
+<h1><a href="#manual--command-line-usage" aria-hidden="true" class="anchor" id="manual--command-line-usage"></a>Manual / Command-Line Usage</h1>
+<p>The content encoding can be manually altered by creating/editing the <code>input.yml</code> file in the root of your project. The example below only expands the alpha channel encoding, but the same structure can be applied to all channels.</p>
+<pre lang="yml"><code>format: raw
+alpha:
+  texture: alpha
+  color: alpha
+  min-value: 0.0
+  max-value: 1.0
+  range-min: 0
+  range-max: 255
+  perceptual: false
+  invert: false
+diffuse-red: {}
+diffuse-green: {}
+diffuse-blue: {}
+albedo-red: {}
+albedo-green: {}
+albedo-blue: {}
+height: {}
+occlusion: {}
+normal-x: {}
+normal-y: {}
+normal-z: {}
+specular: {}
+smooth: {}
+rough: {}
+metal: {}
+f0: {}
+porosity: {}
+sss: {}
+emissive: {}
+</code></pre>
+ </div>
+        </article>
+        <nav id="index">
+            <a href="/m/Null-MC/PixelGraph/wiki_index">🗂️ Page Index for this GitHub Wiki</a>
+        </nav>
+    </div>
+</body>
+
+</html>

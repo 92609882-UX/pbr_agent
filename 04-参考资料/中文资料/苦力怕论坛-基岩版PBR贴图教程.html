@@ -1,0 +1,1296 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minecraft延迟渲染从入门到精通#2——制作pbr贴图 - 教程中心 - Minecraft(我的世界)苦力怕论坛</title>
+<link href="https://klpbbs.com/thread-118830-1-1.html" rel="canonical" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DiscussionForumPosting","@id":"https://klpbbs.com/thread-118830-1-1.html","url":"https://klpbbs.com/thread-118830-1-1.html","mainEntityOfPage":"https://klpbbs.com/thread-118830-1-1.html","headline":"Minecraft延迟渲染从入门到精通#2——制作pbr贴图","datePublished":"2023-10-20T21:47:54+08:00","dateModified":"2023-10-21T08:38:22+08:00","author":{"@type":"Person","name":"portedboar44215"},"publisher":{"@type":"Organization","name":"Minecraft(我的世界)苦力怕论坛","url":"https://klpbbs.com/"},"articleSection":"教程中心","inLanguage":"zh-CN","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":2},{"@type":"InteractionCounter","interactionType":"https://schema.org/ViewAction","userInteractionCount":3954}],"description":"上个教程介绍了延迟渲染包文件结构以及global.json的作用以和相关教程等，仅使用global.json已经可以达到相当不错的效果，但是，实际体验还是有非常多的问题以及需要优 ..."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Minecraft(我的世界)苦力怕论坛","item":"https://klpbbs.com/"},{"@type":"ListItem","position":2,"name":"教程中心","item":"https://klpbbs.com/forum-113-1.html"},{"@type":"ListItem","position":3,"name":"Minecraft延迟渲染从入门到精通#2——制作pbr贴图","item":"https://klpbbs.com/thread-118830-1-1.html"}]}</script>
+
+<meta name="keywords" content="延迟渲染教程,我的世界,我的世界论坛,minecrat,我的世界论坛,minecraft,mc,我的世界国际版,mc,基岩版" />
+<meta name="description" content="上个教程介绍了延迟渲染包文件结构以及global.json的作用以和相关教程等，仅使用global.json已经可以达到相当不错的效果，但是，实际体验还是有非常多的问题以及需要优 ... " />
+<meta name="generator" content="Discuz! X3.4" />
+<meta name="author" content="Discuz! Team and Comsenz UI Team" />
+<meta name="copyright" content="2001-2013 Comsenz Inc." />
+<meta name="MSSmartTagsPreventParsing" content="True" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<base href="https://klpbbs.com/" /><link rel="stylesheet" type="text/css" href="data/cache/style_14_common.css?KEe" /><link rel="stylesheet" type="text/css" href="data/cache/style_14_forum_viewthread.css?KEe" /><script type="text/javascript">var STYLEID = '14', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'KEe', charset = 'utf-8', discuz_uid = '0', cookiepre = '8Mjv_2132_', cookiedomain = '', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'login|newthread|reply', creditnotice = '1|经验|EP,2|铁粒|粒,3|铁锭[已弃用]|块,4|贡献|点,8|钻石|个', defaultstyle = '', REPORTURL = 'aHR0cHM6Ly9rbHBiYnMuY29tL3RocmVhZC0xMTg4MzAtMS0xLmh0bWw=', SITEURL = 'https://klpbbs.com/', JSPATH = 'data/cache/', DYNAMICURL = '';</script>
+<script src="data/cache/common.js?KEe" type="text/javascript"></script>
+<meta name="application-name" content="Minecraft(我的世界)苦力怕论坛" />
+<meta name="msapplication-tooltip" content="Minecraft(我的世界)苦力怕论坛" />
+<meta name="msapplication-task" content="name=首页;action-uri=https://klpbbs.com/portal.php;icon-uri=https://klpbbs.com/static/image/common/portal.ico" /><meta name="msapplication-task" content="name=论坛;action-uri=https://klpbbs.com/forum.php;icon-uri=https://klpbbs.com/static/image/common/bbs.ico" />
+<link rel="archives" title="Minecraft(我的世界)苦力怕论坛" href="https://klpbbs.com/archiver/" />
+<script src="data/cache/forum.js?KEe" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="./template/the_c_style/images/css/font-awesome.min.css?KEe" />
+<!--[if IE]>
+<link href="./template/the_c_style/images/css/font-awesome-ie7.min.css" rel="stylesheet" />
+<![endif]-->
+<script src="./template/the_c_style/images/js/jquery-1.7.1.min.js?KEe" type="text/javascript"></script></head>
+
+<body id="nv_forum" class="pg_viewthread" onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent"></div><div id="ajaxwaitid"></div>
+<div id="qmenu_menu" class="p_pop blk" style="display: none;">
+<div class="ptm pbw hm">
+请 <a href="member.php?mod=logging&action=login"><strong>登录</strong></a> 后使用快捷导航<br />没有帐号？<a href="member.php?mod=register" class="cbtn_sg" title="注册">立即注册</a>
+</div>
+<div id="fjump_menu" class="btda"></div></div><div id="toptb" class="cl">
+
+<script src="https://klpbbs.com/source/plugin/x520_loading/template/js/pace.min.js" type="text/javascript"></script>
+<link href="https://klpbbs.com/source/plugin/x520_loading/template/css/orange/pace-theme-flash.css" rel="stylesheet" />
+
+<div class="wp">
+<div class="z"><a href="k_misign-sign.html" >签到中心</a><a href="https://klpbbs.com/thread-228-1-1.html" target="_blank"  style="font-weight: bold;color: orange">用爱发电</a><a href="forum.php?mod=forumdisplay&fid=56&filter=typeid&typeid=133" >服务器列表</a><a href="https://klpwiki.com" target="_blank"  style="color: green">苦力怕Wiki</a></div>
+<div class="y">
+<a id="switchblind" href="javascript:;" onclick="toggleBlind(this)" title="开启辅助访问" class="switchblind">开启辅助访问</a>
+
+<style>
+#postlist .vwthd{position:relative;overflow:visible;padding-right:115px !important;display:block;z-index:99;}
+#ct .pn_snvbt,#ct .kmn19vbt{position:relative;overflow:visible;padding-right:55px;}
+.kmfz{height:38px;line-height:38px;}
+.pn_viewtop{overflow:visible;}
+.pn_qrcode{position:absolute;top:0px;right:0px;}
+.pn_qrcode .pn_qrcode_img{width:28px;height:28px;background:url(source/plugin/pn_qrcode/image/pn_code.png) no-repeat;}
+#pn_qrcode_menu{z-index:301;border:#CCC 1px solid;padding:15px 10px;position:absolute;width:168px;background:#fafafa;height:200px;top:-1px;right:-1px;cursor:pointer;}
+.ie6 #pn_qrcode_menu{right:-2px;}
+.pn_viewtop #pn_qrcode_menu{top:0px;right:0px;}
+#pn_qrcode_menu p{text-align:center;}
+#pn_qrcode_menu p img{width:168px;height:168px;}
+#pn_qrcode_menu li{text-align:center;line-height:26px;height:26px;}
+#pn_qrcode_menu .pn_txt{font:500 16px/38px "Microsoft Yahei";COLOR:#333;}
+
+</style>
+<script src="source/plugin/pn_qrcode/template/js/qrcode.min.js" type="text/javascript"></script>
+
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="pn_qrcode"><div class="pn_qrcode_img" id="pn_qrcode" onmouseover="showMenu({'ctrlid':this.id,'pos':'*'});" /></div></span>
+<div id="pn_qrcode_menu" style="display:none;">
+<p id="pn_qrcode_img"></p>
+<ul>
+<li class="pn_txt">扫一扫手机访问</li>
+</ul>
+</div>
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("pn_qrcode_img"), {
+width : 168,
+height : 168
+});
+qrcode.makeCode('https://klpbbs.com/thread-118830-1-1.html');
+</script>
+<a href="https://klpbbs.com/"  onclick="addFavorite(this.href, 'Minecraft(我的世界)苦力怕论坛');return false;">收藏本站</a></div>
+</div>
+</div>
+
+<div class="c_nvbd">
+<div class="c_nv">
+<div class="wp cl">
+<div id="c_nv" class="z cl">
+<ul><a href="" class="logo z"><img src="./template/the_c_style/images/logo.png" alt="Minecraft(我的世界)苦力怕论坛" border="0" /></a><li class='a' id="mn_forum" ><a href="forum.php" hidefocus="true" title="论坛"  >论坛<span>论坛</span></a></li><li id="mn_Na5ac" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="home.php?mod=medal" hidefocus="true" title="领取或申请论坛勋章"  >勋章<span>领取或申请论坛勋章</span></a></li><li id="mn_Nc5cc" ><a href="home.php?mod=magic" hidefocus="true"  >道具</a></li><li id="mn_Nf26e" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true"  >下载</a></li><li id="mn_N20dc" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true"  >工具</a></li></ul>
+</div>
+<div class="c_cp y">
+
+<div class="csearch c_cp_icon y">
+<a href="javascript:0;" class="cshow_btn">
+<i class="fa fa-search"></i>
+</a>
+</div><div class="c_cp_icon y cl">
+<a href="member.php?mod=logging&amp;action=login" class="cbtn_lg" title="登录"><i class="fa fa-unlock-alt"></i></a>
+<a href="member.php?mod=register" class="cbtn_sg" title="注册"><i class="fa fa-plus"></i></a>
+<a href="connect.php?mod=login&amp;op=init&amp;referer=index.php&amp;statfrom=login_simple" target="_blank" class="cbtn_qq" title="QQ登录"><i class="fa fa-qq"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cshow_w">
+<div class="cshow_win">
+<p class="cshow_title">站内搜索</p>
+<div class="cshow_content">
+<div id="scbar" class="cl">
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
+<input type="hidden" name="mod" id="scbar_mod" value="search" />
+<input type="hidden" name="formhash" value="f7374e04" />
+<input type="hidden" name="srchtype" value="title" />
+<input type="hidden" name="srhfid" value="113" />
+<input type="hidden" name="srhlocality" value="forum::viewthread" />
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="scbar_icon_td"></td>
+<td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="请输入搜索内容" autocomplete="off" x-webkit-speech speech /></td>
+<td class="scbar_type_td"><em id="scbar_type" class="xg1" hidefocus="true">搜索</em></td>
+<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>
+
+</tr>
+</table>
+</form>
+</div>
+<ul id="scbar_type_menu" class="c_scbar_type cl"><li><a href="javascript:;" rel="curforum" fid="113" >本版</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
+<div class="cscbar_hot">
+<strong class="xw1">热搜: </strong>
+
+<a href="search.php?mod=forum&amp;srchtxt=%E4%B8%8B%E8%BD%BD&amp;formhash=f7374e04&amp;searchsubmit=true&amp;source=hotsearch" target="_blank" class="xi2" sc="1">下载</a>
+
+
+
+<a href="search.php?mod=forum&amp;srchtxt=1.21&amp;formhash=f7374e04&amp;searchsubmit=true&amp;source=hotsearch" target="_blank" class="xi2" sc="1">1.21</a>
+
+
+
+<a href="search.php?mod=forum&amp;srchtxt=1.20&amp;formhash=f7374e04&amp;searchsubmit=true&amp;source=hotsearch" target="_blank" class="xi2" sc="1">1.20</a>
+
+</div>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+jq('#scbar_type_menu li').each(function(){
+jq(this).click(function(){
+jq(this).addClass('cur').siblings().removeClass('cur');
+})
+})
+</script>
+
+
+</div>
+<a href="#0" class="cshow_close"></a>
+</div>
+</div>
+<script type="text/javascript">
+jq(document).ready(function(){
+jq('.cshow_btn').on('click', function(event){
+event.preventDefault();
+jq('.cshow_w').addClass('is-visible');
+});
+jq('.cshow_w').on('click', function(event){
+if( jq(event.target).is('.cshow_close') || jq(event.target).is('.cshow_w') ) {
+event.preventDefault();
+jq(this).removeClass('is-visible');
+}
+});
+jq(document).keyup(function(event){
+if(event.which=='27'){
+jq('.cshow_w').removeClass('is-visible');
+}
+});
+});
+</script><div id="hd">
+<div class="wp">
+<div class="hdc cl">
+<h2><a href="./" title="Minecraft(我的世界)苦力怕论坛"><img src="./template/the_c_style/images/logo.png" alt="Minecraft(我的世界)苦力怕论坛" border="0" /></a></h2>
+</div><i class="cl"></i>
+</div>
+</div>
+<div class="csubnav wp">
+<ul class="p_pop flipInY h_pop" id="mn_Na5ac_menu" style="display: none"><li><a href="home.php?mod=medal" hidefocus="true" >勋章中心</a></li><li><a href="thread-144211-1-1.html" hidefocus="true" >勋章申请</a></li></ul><ul class="p_pop flipInY h_pop" id="mn_Nf26e_menu" style="display: none"><li><a href="thread-177-1-1.html" hidefocus="true" target="_blank"  style="font-weight: bold;color: orange">网易版</a></li><li><a href="thread-3-1-1.html" hidefocus="true" target="_blank" >安卓版</a></li><li><a href="thread-121-1-1.html" hidefocus="true" target="_blank" >Java8</a></li><li><a href="thread-8111-1-1.html" hidefocus="true" target="_blank" >Java16</a></li><li><a href="thread-19539-1-1.html" hidefocus="true" target="_blank" >Java17</a></li><li><a href="thread-133759-1-1.html" hidefocus="true" target="_blank" >Java22</a></li><li><a href="thread-2645-1-1.html" hidefocus="true" target="_blank" >Java版</a></li></ul><ul class="p_pop flipInY h_pop" id="mn_N20dc_menu" style="display: none"><li><a href="https://www.123pan.com" hidefocus="true" target="_blank" >123盘</a></li><li><a href="https://pan.baidu.com" hidefocus="true" target="_blank" >百度网盘</a></li><li><a href="tool/uuid/" hidefocus="true" target="_blank" >UUID生成</a></li><li><a href="https://mcapks.net/tools/vs-check/" hidefocus="true" target="_blank" >新版查询</a></li><li><a href="https://mccag.cn/" hidefocus="true" target="_blank" >头像生成器</a></li><li><a href="https://pmine.org/" hidefocus="true" target="_blank" >FDS工具箱</a></li></ul><div id="mu" class="cl">
+</div></div>
+
+<script type="text/javascript">
+var cnvt = jq(".c_nvbd").offset().top;
+var cph = 0;
+var cp = jq("#controlpanel");
+var cnv = jq(".c_nv");
+jq(window).scroll(function() {
+if (cp.css('visibility') == "visible") {
+cph = cp.height();
+}
+if (jq(this).scrollTop() > (cnvt-cph)){
+cnv.addClass("c_nvfixed");
+cnv.css("top",cph);
+}else{
+cnv.removeClass("c_nvfixed");
+cnv.css("top",0);
+}
+})
+</script>
+<link rel="stylesheet" href="source/plugin/zxsq_code/tools/highlight-10.7/styles/vs.css" /><link rel="stylesheet" href="source/plugin/zxsq_code/css/code.css" /><script src="source/plugin/zxsq_code/tools/highlight-10.7/highlight.pack.js" charset="utf-8"></script><script>hljs.initHighlightingOnLoad();</script><style>.pls{overflow:visible!important;}</style><link rel="stylesheet" type="text/css" href="source/plugin/sunju_facemall/public/css/sunju_face.css"><script src="source/plugin/sunju_facemall/public/sunju_face.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" href="template/comiis_app/comiis/comiis_flxx/comiis_pcflxx.css" /><div id="k_misign_topb_menu" class="tip tip_2" style="display: none;"><div class="tip_horn"></div><div class="tip_c">
+<div id="k_misign_topb_re"></div>
+<script type="text/javascript">ajaxget('plugin.php?id=k_misign:sign&operation=calendar&showid=k_misign_topb_re', 'k_misign_topb_re');</script>
+</div></div>
+		<script type="text/javascript" src="./source/plugin/saya_frontjs/sayaquery.js"></script>
+		<script type="text/javascript">sayaQuery.noConflict();</script><div class="cwp">
+<div id="wp" class="wp">
+<style>.pls{width:200px;}.pls .avatar img{width:160px;}.bui{width:470px !important;}.bui .m img{width:160px;}.piaor{max-width:130px;}</style><script type="text/javascript">var fid = parseInt('113'), tid = parseInt('118830');</script>
+
+<script src="./template/the_c_style/images/js/SC_UTF8/forum_viewthread.js?KEe" type="text/javascript"></script>
+<script type="text/javascript">zoomstatus = parseInt(1);var imagemaxwidth = '600';var aimgcount = new Array();</script>
+<style id="diy_style" type="text/css"></style>
+<!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
+
+
+
+<link rel="stylesheet" type="text/css" href="source/plugin/replyfloor/static/css/style2.css?KEe" />
+
+<style>
+.replyfloor_content_avatar img {margin:0;}
+
+</style>
+
+<style id="diy_style" type="text/css"></style>
+<div class="wp">
+<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+</div>
+<div id="ct" class="wp cl ctct" style="margin-top:20px;">
+
+
+
+    
+    <div class="pgs mtm mbm cl">
+<span class="pgb"><a href="forum-113-1.html">返回列表</a></span>
+</div>
+
+<div class="mn">
+<div class="mnmn">
+<div id="postlist" class="pl">
+<div class="cbm_box">
+<div class="crumb">
+<div class="z">
+<a href="./" class="nvhm" title="首页 [Minecraft(我的世界)苦力怕论坛]"><i class="fa fa-home"></i></a><em>&gt;</em><a href="forum.php">论坛</a> <em>&gt;</em> <a href="forum.php?gid=110">灵感交流</a> <em>&gt;</em> <a href="forum-113-1.html">教程中心</a> <em>&gt;</em><a href="thread-118830-1-1.html" title="Minecraft延迟渲染从入门到精通#2——制作pbr贴图">帖子</a></div>
+<div class="y">
+<a id="newspecial" class="acpost" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=113')" href="javascript:;">本版发帖</a><a href="forum-113-1.html" class="acpost chide">返回</a>
+</div>
+</div>
+<div id="qrcode_menu" class="p_pop" style=" display: none;">
+<img src="https://api.klpbbs.com/api/code/?size=168&amp;text=https://klpbbs.com/forum.php?mod=viewthread%26tid=118830" />
+</div>
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="plc acplc acvwthd" style="border-bottom-width:1px;">
+<div class="ctz_icon y cl">
+<a href="javascript:;" id="qrcode" onmouseover="showMenu({'ctrlid':'qrcode','ctrlclass':'hover','duration':2});"><i class="fa fa-qrcode"></i></a>
+<a href="thread-118830-1-1.html" onclick="return copyThreadUrl(this, 'Minecraft(我的世界)苦力怕论坛')" ><i class="fa  fa-link"></i></a>
+<a href="forum.php?mod=viewthread&amp;action=printable&amp;tid=118830" title="打印" target="_blank"><i class="fa fa-print"></i></a>
+<a href="forum.php?mod=redirect&amp;goto=nextoldset&amp;tid=118830" title="上一主题"><i class="fa fa-chevron-circle-left"></i></a>
+<a href="forum.php?mod=redirect&amp;goto=nextnewset&amp;tid=118830" title="下一主题"><i class="fa fa-chevron-circle-right"></i></a>
+</div>
+<h1 class="acts">
+<a href="forum.php?mod=forumdisplay&amp;fid=113&amp;filter=typeid&amp;typeid=115">[BE教程]</a>
+<a href="thread-118830-1-1.html" id="thread_subject">Minecraft延迟渲染从入门到精通#2——制作pbr贴图</a>
+</h1>
+<span class="xg1">
+</span>
+</td>
+</tr>
+</table>
+
+
+<table cellspacing="0" cellpadding="0" class="ad">
+<tr>
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table><div id="post_9407013"  >
+    <table id="pid9407013" class="plhin" summary="pid9407013" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar9407013" class="pls favatar">
+<a name="newpost"></a> <div class="pi">
+<div class="authi">
+<span class="y">
+<img title="性别不明" src="./template/the_c_style/images/common/gender_s.png" style="margin-right:5px"/>
+<img title="当前离线" src="./template/the_c_style/images/common/offline.png"/>
+</span>
+<a href="space-uid-28847.html" target="_blank" class="piaor txt_s" rel="nofollow">portedb***</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo9407013" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo9407013_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-28847.html" target="_blank" class="xi2" rel="nofollow">portedb***</a></strong>
+<em>当前离线</em>
+</div><dt>UID</dt><dd><a href="?28847" target="_blank" class="xi2">28847</a></dd>
+<dt>性别</dt><dd>保密</dd>
+<dt>经验</dt><dd> EP</dd>
+<dt>铁粒</dt><dd> 粒</dd>
+<dt>回帖</dt><dd><a href="home.php?mod=space&uid=28847&do=thread&type=reply&view=me&from=space" target="_blank" class="xi2" rel="nofollow">0</a></dd>
+<dt>主题</dt><dd><a href="home.php?mod=space&uid=28847&do=thread&type=thread&view=me&from=space" target="_blank" class="xi2" rel="nofollow"></a></dd>
+<dt>精华</dt><dd></dd>
+<dt>在线时间</dt><dd> 小时</dd>
+<dt>注册时间</dt><dd>2021-1-29</dd>
+<dt>最后登录</dt><dd>1970-1-1</dd>
+<dt></dt><dd></dd>
+<dt></dt><dd></dd>
+<div class="imicn">
+<a href="home.php?mod=space&amp;uid=28847&amp;do=profile" target="_blank" title="查看详细资料" rel="nofollow"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar">
+<a href="space-uid-28847.html" class="avtm" target="_blank" rel="nofollow">
+<img src="https://user.klpbbs.com/data/avatar/000/02/88/47_avatar_big.jpg" onerror="this.onerror=null;this.src='https://user.klpbbs.com/images/noavatar_big.gif'" /></a>
+</div>
+</div>
+<nav class="toc toc-side relative z-1 transition--300 absolute" id="markdown_toc_9407013"></nav></div>
+</td>
+<td class="plc">
+<div class="pi">
+<div id="fj" class="y">
+<span class="xg1">查看:</span> <span class="xi1">3954</span><span class="pipe">|</span><span class="xg1">回复:</span> <span class="xi1">4</span>
+</div>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon9407013" src="static/image/common/online_member.png" />
+&nbsp;<em id="authorposton9407013">发表于 2023-10-20 21:47:54</em>
+<span class="xg1">&nbsp;来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=118830&amp;page=1&amp;authorid=28847" rel="nofollow">只看该作者</a>
+<span class="none"><img src="static/image/common/arw_r.gif" class="vm" alt="回帖奖励" /></span>
+<span class="pipe show">|</span><a href="forum.php?mod=viewthread&amp;tid=118830&amp;extra=page%3D1&amp;ordertype=1"  class="show">倒序浏览</a>
+<span class="pipe show">|</span><a href="javascript:;" onclick="readmode($('thread_subject').innerHTML, 9407013);" class="show">阅读模式</a>
+<code class="comiis_iplocality f_d">  IP:广东省</code></div>
+</div>
+</div><div class="pct"><style type="text/css">.pcb{margin-right:0}</style><div class="pcb">
+<script type="text/javascript">function study_killerrpic(errpic){errpic.src="source/plugin/study_discuz_helper/images/nopic.gif";}</script> 
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_9407013">
+<i class="pstatus"> 本帖最后由 portedboar44215 于 2024-2-5 20:46 编辑 </i><br />
+<br />
+&nbsp; &nbsp; 上个教程介绍了延迟渲染包文件结构以及global.json的作用以和相关教程等，仅使用global.json已经可以达到相当不错的效果，但是，实际体验还是有非常多的问题以及需要优化之处，那么，这期教程中介绍的pbr贴图将会解决这些问题。<br />
+<strong><font size="5"><div align="center">零、介绍</div></font></strong>&nbsp; &nbsp; <br />
+&nbsp; &nbsp; pbr贴图，全名为基于物理的渲染，通过pbr贴图，可以达到方块表面粗糙度、凹凸效果、自发光效果以及反射效果等，大大地提高了材质的观赏性。<br />
+<img onerror="study_killerrpic(this)" id="aimg_CYvI0" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" file="https://cdnjson.com/images/2023/10/20/9.png" onmouseover="img_onmouseoverfunc(this)" lazyloadthumb="1" border="0" alt="" loading="lazy" />&nbsp; &nbsp;<br />
+<font color="grey"><font size="2">效果图</font></font><br />
+<strong><font size="5"><div align="center">一、认识文件结构</div></font></strong>&nbsp;&nbsp;<br />
+三角符号为此教程重点<br /><div class="blockcode"><div id="code_kH9"><ol><li>🗃️延迟渲染示例包.mcpack<br /><li>📁lighting<br /><li>&nbsp;&nbsp;↳📃global.json(负责全局定向光照)<br /><li>&nbsp; &nbsp; 📃atmospherics.json(负责环境光散射等)<br /><li>📁textures<br /><li>&nbsp;&nbsp;↳📁blocks(方块材质包)<br /><li>&nbsp; &nbsp;&nbsp;&nbsp;↳📃example.png(材质贴图) ◁<br /><li>&nbsp; &nbsp;&nbsp; &nbsp; 📃example_mer.png(材质金属/粗糙度贴图) ◁<br /><li>&nbsp; &nbsp;&nbsp; &nbsp; 📃example_heightmap.png(材质凹凸贴图) ◁<br /><li>&nbsp; &nbsp;&nbsp; &nbsp; 📃example.texture_set.json(贴图描述文件) ◁<br /><li>&nbsp; &nbsp; …(其他)<br /><li>📃manifest.json(材质清单文件)&nbsp;&nbsp;<br /><li>📃pack_icon.png(材质包封面图片)</ol></div><em onclick="copycode($('code_kH9'));">复制代码</em></div><br />
+<strong><font size="5"><div align="center">二、绘制贴图</div></font></strong><br />
+<strong>1.材质主贴图example.png</strong><br />
+&nbsp; &nbsp; 这是材质包的纹理贴图，也是一个材质最基本的贴图，它决定了方块的外观。由于此贴图不涉及延迟渲染，所以此处不做详细介绍。<br />
+<strong>2.粗糙度贴图example_mer.png</strong><br />
+&nbsp; &nbsp; 此贴图共有三个功能:金属反射、自发光以及粗糙度，分别对应其中的r、g、b颜色通道，各通道的灰度值代表了效果的强度，灰度越低(颜色越鲜艳)则效果越强。<br />
+效果展示<br />
+金属反射<br />
+<img onerror="study_killerrpic(this)" id="aimg_i4njy" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" file="https://cdnjson.com/images/2023/10/20/ezscreenshot-1697805997601.png" onmouseover="img_onmouseoverfunc(this)" lazyloadthumb="1" border="0" alt="" loading="lazy" /><br />
+<img onerror="study_killerrpic(this)" id="aimg_Cpk8N" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" file="https://cdnjson.com/images/2023/10/20/133906rmj4xxyms14z4jwt01.png" onmouseover="img_onmouseoverfunc(this)" lazyloadthumb="1" border="0" alt="" loading="lazy" /><br />
+<br />
+自发光<br />
+<img onerror="study_killerrpic(this)" id="aimg_IVAbr" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" file="https://cdnjson.com/images/2023/10/20/ezscreenshot-1697805967887.png" onmouseover="img_onmouseoverfunc(this)" lazyloadthumb="1" border="0" alt="" loading="lazy" /><br />
+<img onerror="study_killerrpic(this)" id="aimg_Wiodh" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" file="https://cdnjson.com/images/2023/10/20/90101.png" onmouseover="img_onmouseoverfunc(this)" lazyloadthumb="1" border="0" alt="" loading="lazy" /><br />
+<strong>3.凹凸贴图example_heightmap.png</strong>&nbsp;&nbsp;<br />
+&nbsp; &nbsp; 此贴图可以做到凹凸效果，一般只用到灰阶通道，灰度越低则越凸起。或者可以使用法线纹理(彩色)<br />
+效果展示<br />
+<img onerror="study_killerrpic(this)" id="aimg_xrfUl" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" file="https://cdnjson.com/images/2023/10/20/ezscreenshot-1697806065859.png" onmouseover="img_onmouseoverfunc(this)" lazyloadthumb="1" border="0" alt="" loading="lazy" /><br />
+<img onerror="study_killerrpic(this)" id="aimg_MFH5s" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" file="https://cdnjson.com/images/2023/10/20/901.png" onmouseover="img_onmouseoverfunc(this)" lazyloadthumb="1" border="0" alt="" loading="lazy" /><br />
+<strong><font size="5"><div align="center">三、创建贴图描述文件example.texture_set.json</div></font></strong><br />
+&nbsp; &nbsp; 贴图描述文件的作用是让minecraft识别此方块使用到的贴图，如果此方块没用到其中一种贴图，可以删除对应的字段。<br />
+示例:&nbsp; &nbsp; <br /><div class="blockcode"><div id="code_E6l"><ol><li>{<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &quot;format_version&quot;: &quot;1.16.100&quot;,<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &quot;minecraft:texture_set&quot;: {<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;color&quot;: &quot;example&quot;,(材质贴图)<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;metalness_emissive_roughness&quot;: &quot;example_mer&quot;,(粗糙度贴图)<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;heightmap&quot;: &quot;example_heightmap&quot;(凹凸贴图)<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; }<br /><li>}</ol></div><em onclick="copycode($('code_E6l'));">复制代码</em></div><br />
+注意：贴图文件名无需添加后缀！<br />
+<br />
+<br />
+至此，关于pbr材质的教程已经结束，感谢观看！<br />
+祝所有读者都能做出好看的延迟渲染光影包！<br />
+<br />
+其他资源：<br />
+样板包下载(来自官方教程，可直接基于此包进行创作)：<a href="/url.php?url=aHR0cHM6Ly9wYW4uaHVhbmcxMTExLmNuL3MvZE5ncWNW" rel="external nofollow" target="_self" target="_blank">https://pan.huang1111.cn/s/dNgqcV</a><br />
+Microsoft Learn教程地址：<a href="/url.php?url=aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL2VuLXVzL21pbmVjcmFmdC9jcmVhdG9yL2RvY3VtZW50cy9kZWZlcnJlZGxpZ2h0aW5nI2RlZmVycmVkLWxpZ2h0aW5nLWpzb25z" rel="external nofollow" target="_self" target="_blank">https://learn.microsoft.com/en-u ... rred-lighting-jsons</a><br />
+<br />
+<strong>同系列教程(未完工)</strong><br />
+<a href="https://klpbbs.com/thread-116788-1-1.html" target="_blank">Minecraft延迟渲染从入门到精通#1——基本文件结构以及global.json教程</a><br />
+Minecraft延迟渲染从入门到精通#3——大气折射参数自定义教程</td></tr></table>
+
+<div class="ptg mbm mtn">
+<a title="延迟渲染教程" href="misc.php?mod=tag&amp;id=2307" target="_blank">延迟渲染教程</a></div>
+
+</div>
+<div id="comment_9407013" class="cm">
+</div>
+
+<h3 class="psth xs1"><span class="icon_ring vm"></span>评分</h3>
+<dl id="ratelog_9407013" class="rate">
+<dd style="margin:0">
+<div id="post_rate_9407013"></div>
+<table class="ratl">
+<tr>
+<th class="xw1" width="120"><a href="forum.php?mod=misc&amp;action=viewratings&amp;tid=118830&amp;pid=9407013" onclick="showWindow('viewratings', this.href)" title="查看全部评分"> 参与人数 <span class="xi1">2</span></a></th><th class="xw1" width="80">铁粒 <i><span class="xi1">+30</span></i></th>
+<th>
+<a href="javascript:;" onclick="toggleRatelogCollapse('ratelog_9407013', this);" class="y xi2 op">收起</a>
+<i class="txt_h">理由</i>
+</th>
+</tr>
+<tbody class="ratl_l"><tr id="rate_9407013_835198">
+<td style="display:flex;align-items: center;margin-top: 5px;margin-bottom: 5px;">
+<a href="space-uid-835198.html" target="_blank" rel="nofollow"><img src="https://user.klpbbs.com/data/avatar/000/83/51/98_avatar_small.jpg" onerror="this.onerror=null;this.src='https://user.klpbbs.com/images/noavatar_small.gif'" /></a> <a href="space-uid-835198.html" target="_blank" rel="nofollow">&nbsp;WZM***</a>
+</td><td class="xi1"> + 10</td>
+<td class="xg1">被限制了，先打这么点</td>
+</tr>
+<tr id="rate_9407013_59911">
+<td style="display:flex;align-items: center;margin-top: 5px;margin-bottom: 5px;">
+<a href="space-uid-59911.html" target="_blank" rel="nofollow"><img src="https://user.klpbbs.com/data/avatar/000/05/99/11_avatar_small.jpg" onerror="this.onerror=null;this.src='https://user.klpbbs.com/images/noavatar_small.gif'" /></a> <a href="space-uid-59911.html" target="_blank" rel="nofollow">&nbsp;星河***</a>
+</td><td class="xi1"> + 20</td>
+<td class="xg1">原创奖励</td>
+</tr>
+</tbody>
+</table>
+<p class="ratc">
+<a href="forum.php?mod=misc&amp;action=viewratings&amp;tid=118830&amp;pid=9407013" onclick="showWindow('viewratings', this.href)" title="查看全部评分" class="xi2">查看全部评分</a>
+</p>
+</dd>
+</dl>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div id="p_btn" class="mtw mbm hm cl">
+<div class="tshare cl">
+<b>分享到:&nbsp;</b>
+
+<a href="https://klpbbs.com/home.php?mod=spacecp&ac=plugin&id=qqconnect:spacecp&pluginop=share&sh_type=4&thread_id=118830" id="k_share_to_qq" title="QQ好友和群" target="_blank"><i><img src="static/image/common/qq_share.png" alt="QQ好友和群" />QQ好友和群</i></a>
+</div>
+
+<a href="home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=118830&amp;formhash=f7374e04" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖"><i><img src="static/image/common/fav.gif" alt="收藏" />收藏<span id="favoritenumber">9</span></i></a>
+<a id="recommend_add" href="forum.php?mod=misc&amp;action=recommend&amp;do=add&amp;tid=118830&amp;hash=f7374e04"  onclick="showWindow('login', this.href)" onmouseover="this.title = $('recommendv_add').innerHTML + ' 人支持'" title="顶一下"><i><img src="static/image/common/rec_add.gif" alt="支持" />支持<span id="recommendv_add">4</span></i></a>
+</div><div><div style="padding:5px;text-align:center;margin-top:10px;color:#00A2D2;"><b>帖子永久地址：</b><input type="text" value="https://klpbbs.com/thread-118830-1-1.html" size="40" class="px" readonly="readonly" style="vertical-align:middle;">&nbsp;<button type="submit" class="pn" onclick="setCopy('Minecraft延迟渲染从入门到精通#2——制作pbr贴图\nhttps://klpbbs.com/thread-118830-1-1.html', '帖子地址已经复制到剪贴板<br />您可以用快捷键 Ctrl + V 粘贴到 QQ、MSN 里。')"><em>点击复制</em></button></div><br /><fieldset style="border:1px dashed #FF0000;padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px;"><legend align="center" style="color:#FFFFFF;width:200px;text-align:center;background-color:#FF0000;">苦力怕论坛 - 论坛版权</legend>1、本主题所有言论和图片纯属会员个人意见，与本论坛立场无关<br />
+2、本站所有主题由该帖子作者发表，该帖子作者享有帖子相关版权<br />
+3、其他单位或个人使用、转载或引用本文时必须同时征得该帖子作者的同意<br />
+4、帖子作者须承担一切因本文发表而直接或间接导致的民事或刑事法律责任<br />
+5、本帖部分内容转载自其它媒体，但并不代表本站赞同其观点和对其真实性负责<br />
+6、如本帖侵犯到任何版权问题，请立即告知本站，本站将及时予与删除并致以最深的歉意<br />
+7、<a href="https://klpbbs.com/" rel="nofollow"><font color="#FF6600">Minecraft(我的世界)苦力怕论坛</font></a>管理员和版主有权不事先通知发贴者而删除本文</fieldset><br /></div>
+<div class="mtw mbw">
+<h3 class="pbm mbm bbda">相关帖子</h3>
+<ul class="xl xl2 cl"><li>&#8226; <a href="thread-116788-1-1.html" title="Minecraft延迟渲染从入门到精通#1——基本文件结构以及global.json教程" target="_blank">Minecraft延迟渲染从入门到精通#1——基本文件结构以及global.json教程</a></li>
+<li>&#8226; <a href="thread-127920-1-1.html" title="延迟渲染从入门到精通#3  ------ 创建体积雾&amp;利用atmospherics.json修改天空颜色" target="_blank">延迟渲染从入门到精通#3  ------ 创建体积雾&amp;利用atmospherics.json修改天空颜色</a></li>
+</ul>
+</div>
+<div class="sign">苦力怕论坛，感谢有您~</div>
+</td>
+</tr>
+<tr id="_postposition9407013"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=113&amp;tid=118830&amp;reppost=9407013&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)"><i class="fa fa-comment"></i>回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_9407013" class="thread_magic" onmouseover="showMenu(this.id)" class="showmenu"><i class="fa fa-magic"></i>使用道具</a>
+<a href="javascript:;" class="report" onclick="showWindow('miscreport9407013', 'misc.php?mod=report&rtype=post&rid=9407013&tid=118830&fid=113', 'get', -1);return false;"><i class="fa fa-warning"></i>举报</a>
+</p>
+
+<ul id="mgc_post_9407013_menu" class="p_pop mgcmn" style="display: none;">
+<li><a href="home.php?mod=magic&amp;mid=bump&amp;idtype=tid&amp;id=118830" id="a_bump" onclick="showWindow(this.id, this.href)"><img src="static/image/magic/bump.small.gif" />提升卡</a></li>
+<li><a href="home.php?mod=magic&amp;mid=namepost&amp;idtype=pid&amp;id=9407013:118830" id="a_namepost_9407013" onclick="showWindow(this.id, this.href)"><img src="static/image/magic/namepost.small.gif" />观察者</a><li>
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_9407013')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+<script type="text/javascript" reload="1">
+aimgcount[9407013] = ['CYvI0','i4njy','Cpk8N','IVAbr','Wiodh','xrfUl','MFH5s'];
+attachimggroup(9407013);
+var aimgfid = 0;
+</script>
+</div>
+</div><div id="post_9408358" class="cbm_box"  >
+    <table id="pid9408358" class="plhin" summary="pid9408358" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar9408358" class="pls favatar">
+ <div class="pi">
+<div class="authi">
+<span class="y">
+<img title="性别不明" src="./template/the_c_style/images/common/gender_s.png" style="margin-right:5px"/>
+<img title="当前离线" src="./template/the_c_style/images/common/offline.png"/>
+</span>
+<a href="space-uid-1368674.html" target="_blank" class="piaor txt_s" rel="nofollow">伪野***</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo9408358" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo9408358_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-1368674.html" target="_blank" class="xi2" rel="nofollow">伪野***</a></strong>
+<em>当前离线</em>
+</div><dt>UID</dt><dd><a href="?1368674" target="_blank" class="xi2">1368674</a></dd>
+<dt>性别</dt><dd>保密</dd>
+<dt>经验</dt><dd> EP</dd>
+<dt>铁粒</dt><dd> 粒</dd>
+<dt>回帖</dt><dd><a href="home.php?mod=space&uid=1368674&do=thread&type=reply&view=me&from=space" target="_blank" class="xi2" rel="nofollow">0</a></dd>
+<dt>主题</dt><dd><a href="home.php?mod=space&uid=1368674&do=thread&type=thread&view=me&from=space" target="_blank" class="xi2" rel="nofollow"></a></dd>
+<dt>精华</dt><dd></dd>
+<dt>在线时间</dt><dd> 小时</dd>
+<dt>注册时间</dt><dd>2023-9-13</dd>
+<dt>最后登录</dt><dd>1970-1-1</dd>
+<dt></dt><dd></dd>
+<dt></dt><dd></dd>
+<div class="imicn">
+<a href="home.php?mod=space&amp;uid=1368674&amp;do=profile" target="_blank" title="查看详细资料" rel="nofollow"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar">
+<a href="space-uid-1368674.html" class="avtm" target="_blank" rel="nofollow">
+<img src="https://user.klpbbs.com/data/avatar/001/36/86/74_avatar_big.jpg" onerror="this.onerror=null;this.src='https://user.klpbbs.com/images/noavatar_big.gif'" /></a>
+</div>
+</div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&goto=findpost&ptid=118830&pid=9408358"   id="postnum9408358" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>2</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon9408358" src="static/image/common/online_member.png" />
+&nbsp;<em id="authorposton9408358">发表于 2023-10-20 23:00:00</em>
+<span class="xg1">&nbsp;来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=118830&amp;page=1&amp;authorid=1368674" rel="nofollow">只看该作者</a>
+<code class="comiis_iplocality f_d">  IP:福建省</code></div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_9408358">
+<div style="background:#f8f9fa;border-left:4px solid #3498db;border-radius:4px;padding:8px 12px;font-family:sans-serif;display:inline-block"><span style="background:#3498db;border-radius:50%;width:8px;height:8px;display:inline-block;margin-right:6px;animation:pulse 1.5s infinite"></span><strong>评论复审中...</strong> <span style="color:#666;font-size:14px">编号：<span style="color:#3498db;font-weight:500">9408358</span></span></div><style>@keyframes pulse{0%,100%{opacity:0.5}50%{opacity:1}}</style></td></tr></table>
+
+
+</div>
+<div id="comment_9408358" class="cm">
+</div>
+
+<div id="post_rate_div_9408358"></div>
+
+<div class="replyfloor_box" id="replyfloor_box_9408358" onclick="event.stopPropagation();">
+
+<div class="replyfloor_hd">
+
+<span class="replyfloor_tail_floor">
+
+<em>2</em><sup>#</sup>
+
+</span>
+<span class="replyfloor_tail_time">2023-10-20 23:00:00</span>
+<span class="replyfloor_link_unfold" id="replyfloor_link_unfold_9408358" onclick="replyfloor_fold('9408358', 1);" title="">回复<span class="replyfloor_count" style="display:none;">(<span id="replyfloor_count_9408358">0</span>)</span></span>
+<span class="replyfloor_link_fold" id="replyfloor_link_fold_9408358" onclick="replyfloor_fold('9408358', 0);">收起回复</span>
+</div>
+
+<div class="replyfloor_bd" id="replyfloor_bd_9408358">
+<div class="replyfloor_content" id="replyfloor_content_9408358">
+
+<div id="replyfloor_newbox_9408358" class="replyfloor_content_ul"></div>
+
+<div class="replyfloor_content_pager" style="display:none;">
+
+<div class="replyfloor_content_btn" id="replyfloor_content_btn_9408358">
+<a href="javascript:;" onclick="replyfloor_editor('9408358', 0, '');">我要说一句</a>
+</div>
+
+</div>
+
+</div>
+
+<div id="replyfloor_editor_9408358"></div>
+
+</div>
+</div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">苦力怕论坛，感谢有您~</div>
+</td>
+</tr>
+<tr id="_postposition9408358"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=113&amp;tid=118830&amp;repquote=9408358&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)"><i class="fa fa-comment"></i>回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=118830&amp;pid=9408358&amp;hash=f7374e04"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_9408358').innerHTML ? $('review_support_9408358').innerHTML : 0) + ' 人 支持'"><i class="fa fa-thumbs-up"></i>支持 <span id="review_support_9408358">1</span></a>
+<!--<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=118830&amp;pid=9408358&amp;hash=f7374e04"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_9408358').innerHTML ? $('review_against_9408358').innerHTML : 0) + ' 人 反对'"><i class="fa fa-thumbs-down"></i>反对 <span id="review_against_9408358">0</span></a>-->
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_9408358" class="thread_magic" onmouseover="showMenu(this.id)" class="showmenu"><i class="fa fa-magic"></i>使用道具</a>
+<a href="javascript:;" class="report" onclick="showWindow('miscreport9408358', 'misc.php?mod=report&rtype=post&rid=9408358&tid=118830&fid=113', 'get', -1);return false;"><i class="fa fa-warning"></i>举报</a>
+</p>
+
+<ul id="mgc_post_9408358_menu" class="p_pop mgcmn" style="display: none;">
+<li><a href="home.php?mod=magic&amp;mid=namepost&amp;idtype=pid&amp;id=9408358:118830" id="a_namepost_9408358" onclick="showWindow(this.id, this.href)"><img src="static/image/magic/namepost.small.gif" />观察者</a><li>
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_9408358')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div>
+<div id="post_9411659" class="cbm_box"  >
+    <table id="pid9411659" class="plhin" summary="pid9411659" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar9411659" class="pls favatar">
+ <a class="lastpostanchor" name="lastpost"></a><div class="pi">
+<div class="authi">
+<span class="y">
+<img title="性别不明" src="./template/the_c_style/images/common/gender_s.png" style="margin-right:5px"/>
+<img title="当前离线" src="./template/the_c_style/images/common/offline.png"/>
+</span>
+<a href="space-uid-471822.html" target="_blank" class="piaor txt_s" rel="nofollow">miracle***</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_" id="userinfo9411659" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo9411659_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="space-uid-471822.html" target="_blank" class="xi2" rel="nofollow">miracle***</a></strong>
+<em>当前离线</em>
+</div><dt>UID</dt><dd><a href="?471822" target="_blank" class="xi2">471822</a></dd>
+<dt>性别</dt><dd>保密</dd>
+<dt>经验</dt><dd> EP</dd>
+<dt>铁粒</dt><dd> 粒</dd>
+<dt>回帖</dt><dd><a href="home.php?mod=space&uid=471822&do=thread&type=reply&view=me&from=space" target="_blank" class="xi2" rel="nofollow">0</a></dd>
+<dt>主题</dt><dd><a href="home.php?mod=space&uid=471822&do=thread&type=thread&view=me&from=space" target="_blank" class="xi2" rel="nofollow"></a></dd>
+<dt>精华</dt><dd></dd>
+<dt>在线时间</dt><dd> 小时</dd>
+<dt>注册时间</dt><dd>2022-6-30</dd>
+<dt>最后登录</dt><dd>1970-1-1</dd>
+<dt></dt><dd></dd>
+<dt></dt><dd></dd>
+<div class="imicn">
+<a href="home.php?mod=space&amp;uid=471822&amp;do=profile" target="_blank" title="查看详细资料" rel="nofollow"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+<div class="avatar">
+<a href="space-uid-471822.html" class="avtm" target="_blank" rel="nofollow">
+<img src="https://user.klpbbs.com/data/avatar/000/47/18/22_avatar_big.jpg" onerror="this.onerror=null;this.src='https://user.klpbbs.com/images/noavatar_big.gif'" /></a>
+</div>
+</div>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="forum.php?mod=redirect&goto=findpost&ptid=118830&pid=9411659"   id="postnum9411659" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>3</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon9411659" src="static/image/common/online_member.png" />
+&nbsp;<em id="authorposton9411659">发表于 2023-10-21 08:38:22</em>
+<span class="xg1">&nbsp;来自手机</span>
+<span class="pipe">|</span>
+<a href="forum.php?mod=viewthread&amp;tid=118830&amp;page=1&amp;authorid=471822" rel="nofollow">只看该作者</a>
+<code class="comiis_iplocality f_d">  IP:广东省</code></div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_9411659">
+<div style="background:#f8f9fa;border-left:4px solid #3498db;border-radius:4px;padding:8px 12px;font-family:sans-serif;display:inline-block"><span style="background:#3498db;border-radius:50%;width:8px;height:8px;display:inline-block;margin-right:6px;animation:pulse 1.5s infinite"></span><strong>评论复审中...</strong> <span style="color:#666;font-size:14px">编号：<span style="color:#3498db;font-weight:500">9411659</span></span></div><style>@keyframes pulse{0%,100%{opacity:0.5}50%{opacity:1}}</style></td></tr></table>
+
+
+</div>
+<div id="comment_9411659" class="cm">
+</div>
+
+<div id="post_rate_div_9411659"></div>
+
+<div class="replyfloor_box" id="replyfloor_box_9411659" onclick="event.stopPropagation();">
+
+<div class="replyfloor_hd">
+
+<span class="replyfloor_tail_floor">
+
+<em>3</em><sup>#</sup>
+
+</span>
+<span class="replyfloor_tail_time">2023-10-21 08:38:22</span>
+<span class="replyfloor_link_unfold" id="replyfloor_link_unfold_9411659" onclick="replyfloor_fold('9411659', 1);" title="" style="display:none;">回复<span class="replyfloor_count">(<span id="replyfloor_count_9411659">2</span>)</span></span>
+<span class="replyfloor_link_fold" id="replyfloor_link_fold_9411659" onclick="replyfloor_fold('9411659', 0);" style="display:inline-block;">收起回复</span>
+</div>
+
+<div class="replyfloor_bd" id="replyfloor_bd_9411659" style="display:block;">
+<div class="replyfloor_content" id="replyfloor_content_9411659">
+<div class="replyfloor_content_ul"><div class="replyfloor_content_li" id="replyfloor_content_li_26822"><div class="replyfloor_content_avatar"><a href="space-uid-28847.html" c="1" rel="nofollow"><img src="https://user.klpbbs.com/data/avatar/000/02/88/47_avatar_small.jpg" onerror="this.onerror=null;this.src='https://user.klpbbs.com/images/noavatar_small.gif'" /></a></div>
+<div class="replyfloor_content_cnt">
+<div class="replyfloor_content_head">
+<div class="replyfloor_content_head_z">
+<span class="replyfloor_content_user"><a href="space-uid-28847.html" c="1" rel="nofollow">portedboar44215</a></span>
+
+<span class="replyfloor_content_time">2023-10-21 10:48</span>
+<span class="replyfloor_content_location">IP：广东省</span>
+</div>
+<div class="replyfloor_content_head_y">
+<span class="replyfloor_content_rpbtn" onclick="replyfloor_editor('9411659', 26822, '回复 portedboar44215 :');">回复</span>
+
+<span class="replyfloor_content_reportbtn" onclick="replyfloor_report('9411659', 26822);">举报</span>
+
+</div>
+</div>
+<div class="replyfloor_content_main">
+
+<div class="replyfloor_content_text">是的，一堆专业名词，我也没完全搞懂。<br />
+所以调换了顺序，先写pbr教程</div>
+
+</div>
+</div>
+</div>
+<div class="replyfloor_content_li" id="replyfloor_content_li_29230"><div class="replyfloor_content_avatar"><a href="space-uid-1492891.html" c="1" rel="nofollow"><img src="https://user.klpbbs.com/data/avatar/001/49/28/91_avatar_small.jpg" onerror="this.onerror=null;this.src='https://user.klpbbs.com/images/noavatar_small.gif'" /></a></div>
+<div class="replyfloor_content_cnt">
+<div class="replyfloor_content_head">
+<div class="replyfloor_content_head_z">
+<span class="replyfloor_content_user"><a href="space-uid-1492891.html" c="1" rel="nofollow">klee@ys.com</a></span>
+
+<span class="replyfloor_content_time">2023-12-16 07:23</span>
+<span class="replyfloor_content_location">IP：上海</span>
+</div>
+<div class="replyfloor_content_head_y">
+<span class="replyfloor_content_rpbtn" onclick="replyfloor_editor('9411659', 29230, '回复 klee@ys.com :');">回复</span>
+
+<span class="replyfloor_content_reportbtn" onclick="replyfloor_report('9411659', 29230);">举报</span>
+
+</div>
+</div>
+<div class="replyfloor_content_main">
+
+<div class="replyfloor_content_text">我连颜色代码是是哪些都不知道（悲）</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="replyfloor_newbox_9411659" class="replyfloor_content_ul"></div>
+
+<div class="replyfloor_content_pager">
+
+<div class="replyfloor_content_btn" id="replyfloor_content_btn_9411659">
+<a href="javascript:;" onclick="replyfloor_editor('9411659', 0, '');">我要说一句</a>
+</div>
+
+</div>
+
+</div>
+
+<div id="replyfloor_editor_9411659"></div>
+
+</div>
+</div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign">苦力怕论坛，感谢有您~</div>
+</td>
+</tr>
+<tr id="_postposition9411659"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=113&amp;tid=118830&amp;repquote=9411659&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)"><i class="fa fa-comment"></i>回复</a>
+<a class="replyadd" href="forum.php?mod=misc&amp;action=postreview&amp;do=support&amp;tid=118830&amp;pid=9411659&amp;hash=f7374e04"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_support_9411659').innerHTML ? $('review_support_9411659').innerHTML : 0) + ' 人 支持'"><i class="fa fa-thumbs-up"></i>支持 <span id="review_support_9411659"></span></a>
+<!--<a class="replysubtract" href="forum.php?mod=misc&amp;action=postreview&amp;do=against&amp;tid=118830&amp;pid=9411659&amp;hash=f7374e04"  onclick="showWindow('login', this.href)" onmouseover="this.title = ($('review_against_9411659').innerHTML ? $('review_against_9411659').innerHTML : 0) + ' 人 反对'"><i class="fa fa-thumbs-down"></i>反对 <span id="review_against_9411659"></span></a>-->
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_9411659" class="thread_magic" onmouseover="showMenu(this.id)" class="showmenu"><i class="fa fa-magic"></i>使用道具</a>
+<a href="javascript:;" class="report" onclick="showWindow('miscreport9411659', 'misc.php?mod=report&rtype=post&rid=9411659&tid=118830&fid=113', 'get', -1);return false;"><i class="fa fa-warning"></i>举报</a>
+</p>
+
+<ul id="mgc_post_9411659_menu" class="p_pop mgcmn" style="display: none;">
+<li><a href="home.php?mod=magic&amp;mid=namepost&amp;idtype=pid&amp;id=9411659:118830" id="a_namepost_9411659" onclick="showWindow(this.id, this.href)"><img src="static/image/magic/namepost.small.gif" />观察者</a><li>
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_9411659')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div>
+<div id="postlistreply" class="pl"><div id="post_new" class="viewthread_table" style="display: none"></div></div>
+</div>
+
+
+<form method="post" autocomplete="off" name="modactions" id="modactions">
+<input type="hidden" name="formhash" value="f7374e04" />
+<input type="hidden" name="optgroup" />
+<input type="hidden" name="operation" />
+<input type="hidden" name="listextra" value="page%3D1" />
+<input type="hidden" name="page" value="1" />
+</form>
+
+            
+            <!--<div style="color: #f00;font-size: 1rem;border: 1px solid;display: inline;padding: 0 1rem;border-radius: 10px;background-color: #fff;">-->
+            <!--        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16" style="color: #f00; margin-left: 1rem;">-->
+            <!--          <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>-->
+            <!--        </svg>-->
+            <!--        <span>评论区暂时隐藏审核中...</span>-->
+            <!--    </div>-->
+            
+
+<div class="pgs mtm mbm cl">
+<span class="pgb y"><a href="forum-113-1.html">返回列表</a></span>
+<a id="newspecialtmp" class="acpost" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=113')" href="javascript:;">发新帖</a>
+</div>
+
+<!--[diy=diyfastposttop]--><div id="diyfastposttop" class="area"></div><!--[/diy]-->
+<script type="text/javascript">
+var postminchars = parseInt('10');
+var postmaxchars = parseInt('500000');
+var disablepostctrl = parseInt('0');
+</script>
+
+<div id="f_pst" class="pl bm cbm_box">
+<form method="post" autocomplete="off" id="fastpostform" action="forum.php?mod=post&amp;action=reply&amp;fid=113&amp;tid=118830&amp;extra=page%3D1&amp;replysubmit=yes&amp;infloat=yes&amp;handlekey=fastpost" onSubmit="return fastpostvalidate(this)">
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls">
+</td>
+<td class="plc">
+
+<span id="fastpostreturn"></span>
+
+
+<div class="cl">
+<div id="fastsmiliesdiv" class="y"><div id="fastsmiliesdiv_data"><div id="fastsmilies"></div></div></div><div class="hasfsl" id="fastposteditor">
+<div class="tedt mtn">
+<div class="area">
+<div class="pt hm">
+您需要登录后才可以回帖 <a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href)" class="xi2">登录</a> | <a href="member.php?mod=register" class="xi2">立即注册</a>
+
+
+<a href="https://klpbbs.com/connect.php?mod=login&op=init&referer=forum.php%3Fmod%3Dviewthread%26tid%3D118830%26extra%3Dpage%253D1%26page%3D1&statfrom=login" target="_top" rel="nofollow"><img src="static/image/common/qq_login.gif" class="vm" /></a>
+
+</div>
+</div>
+<div class="bar">
+<span class="y">
+<a href="forum.php?mod=post&amp;action=reply&amp;fid=113&amp;tid=118830" onclick="return switchAdvanceMode(this.href)">高级模式</a>
+</span><script src="data/cache/seditor.js?KEe" type="text/javascript"></script>
+<div class="fpd">
+<a href="javascript:;" title="文字加粗" class="fbld">B</a>
+<a href="javascript:;" title="设置文字颜色" class="fclr" id="fastpostforecolor">Color</a>
+<a id="fastpostimg" href="javascript:;" title="图片" class="fmg">Image</a>
+<a id="fastposturl" href="javascript:;" title="添加链接" class="flnk">Link</a>
+<a id="fastpostquote" href="javascript:;" title="引用" class="fqt">Quote</a>
+<a id="fastpostcode" href="javascript:;" title="代码" class="fcd">Code</a>
+<a href="javascript:;" class="fsml" id="fastpostsml">Smilies</a>
+</div></div>
+</div>
+</div>
+</div>
+<div id="seccheck_fastpost">
+</div>
+
+
+<input type="hidden" name="formhash" value="f7374e04" />
+<input type="hidden" name="usesig" value="" />
+<input type="hidden" name="subject" value="  " />
+<p class="ptm pnpost">
+<a href="home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=113" class="y" target="_blank">本版积分规则</a>
+<button type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" onmouseover="checkpostrule('seccheck_fastpost', 'ac=reply');this.onmouseover=null" name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit" tabindex="5"><strong>发表回复</strong></button>
+<label for="fastpostrefresh"><input id="fastpostrefresh" type="checkbox" class="pc" />回帖后跳转到最后一页</label>
+<script type="text/javascript">if(getcookie('fastpostrefresh') == 1) {$('fastpostrefresh').checked=true;}</script>
+</p>
+</td>
+</tr>
+</table>
+</form>
+</div>
+</div><!-- div.mnmn end -->
+</div><!-- div.mn end -->
+
+		<script type="text/javascript">
+			function saya_extlink_golink(url){
+				showDialog('此链接不属于本站，本站不能保证其安全性，仍要访问吗？', 'confirm', '请注意', "window.open('"+url+"')", 1);
+			}
+			</script><script type="text/javascript">
+    // 执行函数
+    (function(){
+        // 获取当前页面信息
+        var currentUrl = window.location.href;
+        var baseUrl = currentUrl.split('#')[0]; // 获取基本URL（不含锚点）
+        
+        // 处理URL中的#pid锚点
+        if(currentUrl.indexOf('#pid') > -1) {
+            // 清除锚点，但保留其他参数
+            if(history.replaceState) {
+                history.replaceState({}, document.title, baseUrl);
+            }
+        }
+        
+        // 捕获页面上所有链接的点击事件
+        document.addEventListener('click', function(e) {
+            var target = e.target;
+            
+            // 向上寻找最近的a标签
+            while(target && target.tagName !== 'A') {
+                target = target.parentElement;
+                if(!target) return; // 没有找到a标签
+            }
+            
+            // 检查链接是否包含#pid
+            var href = target.href || '';
+            if(href.indexOf('#pid') > -1) {
+                e.preventDefault(); // 阻止默认行为
+                
+                // 只跳转到主题页面，不跳转到指定楼层
+                var cleanUrl = href.split('#')[0];
+                window.location.href = cleanUrl;
+                return false;
+            }
+        }, true);
+        
+        // 分析并替换页面上的锚点链接，但保持链接可点击
+        function processLinks() {
+            var links = document.getElementsByTagName('a');
+            for(var i = 0; i < links.length; i++) {
+                var link = links[i];
+                var href = link.getAttribute('href') || '';
+                
+                // 找到包含#pid的viewthread链接
+                if(href.indexOf('#pid') > -1 && 
+                  (href.indexOf('forum.php?mod=viewthread') > -1 || 
+                   href.indexOf('mod=viewthread') > -1)) {
+                    
+                    // 将链接指向不带锚点的URL
+                    link.setAttribute('data-original-href', href); // 保存原始链接
+                    link.setAttribute('href', href.split('#')[0]); // 设置新链接
+                }
+            }
+        }
+        
+        // 初始处理
+        processLinks();
+        
+        // 监听DOM变化，处理动态加载的内容
+        if(window.MutationObserver) {
+            var observer = new MutationObserver(function(mutations) {
+                processLinks();
+            });
+            
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        }
+    })();
+</script>
+
+<script src="source/plugin/replyfloor/static/js/cquery.js?KEe" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="source/plugin/replyfloor/static/cwebuploader/cwebuploader.css?KEe">
+<script src="source/plugin/replyfloor/static/cwebuploader/cwebuploader.js?KEe" type="text/javascript"></script>
+
+<script src="source/plugin/replyfloor/static/js/common.js?KEe" type="text/javascript" charset="utf-8"></script>
+
+<script src="data/cache/seditor.js?KEe" type="text/javascript"></script>
+<script type='text/template' id="replyfloor_editorbox">
+<div class="replyfloor_editor">
+<form id="replyfloor_messageform" name="replyfloor_messageform" onsubmit="replyfloor_onsubmit();return false;" action='plugin.php?id=replyfloor:index&ac=post&tid=118830' method="post" autocomplete="off">
+<input type="hidden" name="formhash" value="f7374e04">
+<input type="hidden" name="savesubmit" value="true" />
+<input type="hidden" name="pid" value="0" id="replyfloor_pid" />
+<input type="hidden" name="msgid" value="0" id="replyfloor_msgid" />
+<input type="hidden" name="handlekey" value="messagepost" />
+<div class="replyfloor_replyto" id="replyfloor_replyto"></div>
+<div id="replyfloor_extratedt"></div>
+<div class="tedt">
+<div class="bar">
+<div class="fpd">
+<a href="javascript:;" title="文字加粗" class="fbld" onclick="seditor_insertunit('replyfloor_', '[b]', '[/b]');doane(event);">B</a>
+<a href="javascript:;" title="设置文字颜色" class="fclr" id="replyfloor_forecolor" onclick="showColorBox(this.id, 2, 'replyfloor_');doane(event);">Color</a>
+<a href="javascript:;" class="fsml" id="replyfloor_sml" onclick="showMenu({'ctrlid':this.id,'evt':'click','layer':2});return false;">Smilies</a>
+
+<a href="javascript:;" class="fmg" id="replyfloor_img">uploadImage</a>
+
+</div>
+</div>
+<div class="area">
+<textarea name="message" placeholder="善语结善缘，恶言伤人心" rows="3" cols="80" class="pt replyfloor_editor_textarea" id="replyfloor_message" onKeyUp="replyfloor_strLenCalc(this, 'replyfloor_checklen', 2000)" onChange="replyfloor_strLenCalc(this, 'replyfloor_checklen', 2000)" onKeyDown="seditor_ctlent(event, '$(\'replyfloor_submit\').click();')"></textarea>
+</div>
+</div>
+<div class="replyfloor_upimage" id="replyfloor_upimage"></div>
+<div class="ptm pnpost">
+<div class="replyfloor_editor_right">
+<button id="replyfloor_submit" class="replyfloor_editor_btn" type="submit"><strong>发表</strong></button>
+
+<span class="replyfloor_editor_btntip">还可输入 <strong id="replyfloor_checklen">2000</strong> 个字符</span>
+</div>
+</div>
+</form>
+</div>
+</script>
+<script type="text/javascript">smilies_show('replyfloor_smiliesdiv', 8, 'replyfloor_');</script>
+
+<script type="text/javascript">
+
+function replyfloor_report(postid, msgid) {
+showWindow('reportmod', 'plugin.php?id=replyfloor:index&ac=report&tid=118830&pid='+postid+'&msgid='+msgid, 'get');
+return false;
+}
+
+function replyfloor_fold(postid, type) {
+if(type == 1){
+
+showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes');
+
+}else{
+document.getElementById('replyfloor_link_unfold_' + postid).style.display = 'inline-block';
+document.getElementById('replyfloor_link_fold_' + postid).style.display = 'none';
+document.getElementById('replyfloor_bd_' + postid).style.display = 'none';
+if(document.getElementById('replyfloor_editor')){
+document.getElementById('replyfloor_editor').parentNode.removeChild(document.getElementById('replyfloor_editor'));
+}
+}
+}
+function replyfloor_reply(url) {
+var postid = replyfloor_postid(url);
+if(postid){
+
+document.getElementById('replyfloor_editor_'+postid).innerHTML = '';
+replyfloor_fold(postid, 1);
+doane();
+
+}else{
+showWindow('reply', url);
+}
+return false;
+}
+function replyfloor_editor(postid, msgid, reply) {
+
+showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes');
+
+}
+function replyfloor_onsubmit() {
+
+showWindow('login', 'member.php?mod=logging&action=login');
+
+return false;
+}
+function succeedhandle_messagepost(url, msg, values) {
+
+document.getElementById('replyfloor_content_btn_' + values['pid']).parentNode.style.display='';
+if(document.getElementById('replyfloor_editor')){
+document.getElementById('replyfloor_message').value = '';
+document.getElementById('replyfloor_upimage').innerHTML = '';
+replyfloor_strLenCalc(document.getElementById('replyfloor_message'), 'replyfloor_checklen', 2000);
+document.getElementById('replyfloor_message').focus();
+if(document.getElementById('replyfloor_seccodeimg')){
+replyfloor_seccodeimg(document.getElementById('replyfloor_seccodeimg'));
+}
+if(typeof replyfloor_allowreply_submit == 'function') {
+replyfloor_allowreply_submit();
+}
+}
+
+var x = new Ajax();
+x.get('plugin.php?id=replyfloor:index&tid='+values['tid']+'&pid='+values['pid']+'&msgid='+values['msgid'] + '&inajax=1', function(s) {
+if(document.getElementById('replyfloor_bd_' + values['pid'])){
+document.getElementById('replyfloor_bd_' + values['pid']).style.display = 'block';
+}
+var div = document.createElement('div');
+document.getElementById('replyfloor_newbox_'+values['pid']).appendChild(div);
+div.outerHTML = s;
+if(document.getElementById('replyfloor_count_' + values['pid'])){
+var count = document.getElementById('replyfloor_count_' + values['pid']).innerHTML;
+document.getElementById('replyfloor_count_' + values['pid']).parentNode.style.display='';
+count = parseInt(count) + 1;
+document.getElementById('replyfloor_count_' + values['pid']).innerHTML = count;
+}
+});
+showCreditPrompt();
+return false;
+}
+
+</script>
+
+<script type="text/javascript">
+new lazyload();
+</script>
+<script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, 0, 0, 'forum.php?mod=viewthread&tid=118830', 1);}</script>
+</div>
+
+<div class="wp mtn">
+<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+</div>
+
+<script type="text/javascript">
+function succeedhandle_followmod(url, msg, values) {
+var fObj = $('followmod_'+values['fuid']);
+if(values['type'] == 'add') {
+fObj.innerHTML = '不收听';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=del&fuid='+values['fuid'];
+} else if(values['type'] == 'del') {
+fObj.innerHTML = '收听TA';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=add&hash=f7374e04&fuid='+values['fuid'];
+}
+}
+//fixed_top_nv();
+</script>		
+</div><!-- div.wp end -->
+</div><!-- div.cwp end -->
+
+
+
+
+<div class="cft">
+<div class="main wp cl">
+<dl>
+<dt>本站</dt>
+<dd>
+<a href="misc.php?mod=faq&amp;action=faq&amp;id=3" target="_blank">关于我们</a><br>
+<a href="misc.php?mod=faq&amp;action=faq&amp;id=5" target="_blank">联系我们</a><br>
+<a href="thread-108300-1-1.html" target="_blank">坛史纲要</a>
+</dd>
+</dl>
+<dl>
+<dt>官方</dt>
+<dd>
+<a href="https://space.bilibili.com/1995180835" target="_blank">哔哩哔哩</a><br>
+<a href="https://blog.klpbbs.com" target="_blank">技术博客</a><br>
+</dd>
+</dl>
+<dl>
+<dt>下载</dt>
+<dd>
+<a href="thread-177-1-1.html" target="_blank">网易版</a><br>
+<a href="thread-3-1-1.html" target="_blank">安卓版</a><br>
+<a href="thread-121-1-1.html" target="_blank">JAVA</a>
+</dd>
+</dl>
+<dl>
+<dt>反馈</dt>
+<dd>
+<a href="forum.php?mod=post&amp;action=newthread&amp;fid=63" target="_blank">意见建议</a><br>
+<a href="forum-113-1.html" target="_blank">教程中心</a>
+</dd>
+</dl>
+<dl>
+<dt>更多</dt>
+<dd class="noborder">
+<a href="thread-228-1-1.html" target="_blank">捐助本站</a><br>
+<a href="info/qun/index.html" target="_blank">QQ群</a>
+</dd>
+</dl>
+<div class="text_center pic y">
+<img src="https://data.klpbbs.com/file/tc/img/2023/01/21/63cba36b10c0e.png" alt="QQ群">
+<h2>QQ群</h2>
+</div>
+<div class="text_center pic y">
+<img src="https://api.klpbbs.com/api/code/?size=168&amp;text=https://klpbbs.com/" alt="访问手机版">
+<h2>访问手机版</h2>
+</div>
+</div>
+
+
+<script>console.log("16:0.260974")</script><script src="./js/common.js"></script><div id="ft" class="wp cl">
+<div id="flk" class="y">
+<p>
+<a href="forum.php?mobile=yes" >手机版</a><span class="pipe">|</span><a href="forum.php?mod=misc&action=showdarkroom" >小黑屋</a><span class="pipe">|</span><a href="https://status.klpz.net/" target="_blank" >系统状态</a><span class="pipe">|</span><strong><a href="" target="_blank">klpbbs.com</a></strong>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e9467b5763dd158254b35e7dacc240f3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</p>
+    <p>
+     由 <a href="https://www.muhan.co/" target="_blank">木韩网络</a> 提供支持 | GMT+8, 2026-9-9 21:08        </p>
+</div>
+<div id="frt">
+<p>声明：<strong>本站与Mojang以及微软公司没有从属关系</strong> </p>
+<p>Powered by <strong>Discuz!</strong> X3.4 </p>
+</div></div>
+</div>
+
+<script language="javascript" type="text/javascript">
+function wph(){
+var winH = jq(window).height();
+var cwpMt = parseInt(jq(".cwp").css('marginTop'));
+jq("body").css('min-height', winH - cwpMt);
+var minH = winH - jq("#toptb").outerHeight(true) - jq(".c_nvbd").outerHeight(true) - cwpMt - jq(".cft").outerHeight(true);
+jq("#wp.wp").css({
+minHeight: minH,
+});
+}
+wph();
+window.onresize=function(){wph();}
+</script>
+
+
+
+<script src="home.php?mod=misc&ac=sendmail&rand=1788959329" type="text/javascript"></script>
+
+<div class="cscrolltop">
+<div class="replyfast"><a href="forum.php?mod=post&amp;action=reply&amp;fid=113&amp;tid=118830&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)" title="快速回复"><i class="child fa fa-comment"></i></a></div>
+<div class="returnlist"><a href="forum-113-1.html" hidefocus="true" title="返回列表"><i class="child fa fa-outdent"></i></a></div>
+<div class="scrolltopa"><a title="返回顶部"><i class="child fa fa-eject"></i></a></div>
+</div>
+    
+<script type="text/javascript">
+jq(window).scroll(function() {
+if (jq(this).scrollTop() > 200){
+jq('.cscrolltop').css('right','8px');
+}else{
+jq('.cscrolltop').css('right','-55px');
+}
+})
+jq('.scrolltopa').click(function () {
+if (window.navigator.userAgent.indexOf("MSIE")>=1){
+window.scrollTo('0','0');
+}else{
+jq('body,html').animate({ scrollTop: 0 }, 500);
+}
+})
+</script>
+</body>
+
+</html>
+    		  	  		  	  		     	   			    		   		     		       	 				 	    		   		     		       	 			 		    		   		     		       	   			    		   		     		       	  		      		   		     		       	   		     		   		     		       	 			 	     		   		     		       	   			    		   		     		       	 			 		    		   		     		       	 			  	    		   		     		       	  	 		    		   		     		       	 				      		   		     		       	 			  	    		   		     		       	 				 	    		   		     		       	  				    		   		     		       	  		 	    		   		     		       	 				      		   		     		       	  	 		    		   		     		       	  		 	    		   		     		       	  				    		   		     		       	 			 		    		   		     		       	  		      		   		     		       	  	 	     		   		     		       	  		 	    		   		     		       	  			     		   		     		       	   			    		   		     		       	  	 		    		   		     		       	  			     		   		     		       	  		 	    		   		     		       	 			  	    		   		     		       	 			 	     		   		     		       	 				 	    		 	      	  		  	  		     	    		  	  		  	  		     	  		 	    		   		     		       	   		     		   		     		       	  	       		   		     		       	  				    		   		     		       	   		     		   		     		       	  	 	     		   		     		       	  		      		 	      	  		  	  		     	

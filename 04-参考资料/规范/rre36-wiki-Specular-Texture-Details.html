@@ -1,0 +1,378 @@
+<html>
+
+<head>
+    <title> Specular Texture Details - rre36/lab-pbr GitHub Wiki </title>
+    <style>
+        #main {
+            max-width: 38rem;
+            margin: auto;
+            overflow-wrap: break-word;
+            min-width: 0;
+            background-color: white;
+        }
+
+        body {
+            background-image: url('/callToAction.svg');
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #header_button {
+            position: sticky;
+            top: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #header_button p {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        #header_info {
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #content,
+        #index {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #footer_info {
+            position: sticky;
+            bottom: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+        }
+
+        #footer_info .blocks {
+            background: black;
+            color: white;
+            /* outline: 1px solid blue; */
+            padding: .1em .2em;
+        }
+
+        /* Hide useless-parts of transcluded HTML */
+        .width-full.input-group {
+            display: none;
+        }
+
+        h5:nth-last-child(2) {
+            display: none;
+        }
+
+        .Box-row.wiki-more-pages-link {
+            display: none;
+        }
+
+        .filter-bar {
+            display: none;
+        }
+
+        .Box-title>.octicon {
+            display: none;
+        }
+
+        .anchor {
+            display: none;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        #main {
+            word-wrap: break-word;
+        }
+
+        .Counter {
+            background-color: lightgray;
+            border-radius: 20px;
+            padding: 0 10px;
+        }
+
+        table {
+            max-width: 100%;
+            overflow: auto;
+            width: 100%;
+            display: block;
+        }
+
+        .js-wiki-sidebar-toc-toggle-chevron-button {
+            display: none;
+        }
+
+        a.visit_url_original {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2em; /* adjust as needed */
+            max-height: 1.2em; /* should match line-height */
+            display: block;
+        }
+
+        /* White background for span */
+        /* Rounded corners */
+        /* Black border */
+        .visit_url_pillbar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+            display: block;
+            border: 1px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Broken Images */
+        img:before {
+            content: "⚠️ MISSING OR BROKEN IMAGE RENDERING ERROR: PLEASE VIEW ORIGINAL PAGE ON GITHUB.COM ⚠️";
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @font-face {
+            font-family: "color-emoji";
+            src: local("Apple Color Emoji"),
+                local("Segoe UI Emoji"),
+                local("Segoe UI Symbol"),
+                local("Noto Color Emoji");
+        }
+
+        .emoji {
+            font-family: "color-emoji";
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .visit_url_link {
+            font-size: xx-large;
+        }
+
+        .why_exist {
+            position: relative;
+            text-align: center;
+            /* italics */
+            font-style: italic;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Not used, did not want to risk non-indexing. -->
+    <!-- <meta property="og:url" content="https://github.com/rre36/lab-pbr/wiki/Specular-Texture-Details"> -->
+    <!-- Did not want to risk contaminating content to be indexed. -->
+    <!-- <meta property="og:description" content="not used"> -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Specular Texture Details - rre36/lab-pbr GitHub Wiki">
+</head>
+
+<body>
+    <div id="main">
+        <nav id="header_button">
+            <p>Content mirrored for search engine indexing from:</p>
+            <div>
+                <span class="visit_url_pillbar">
+                    <a href="https://github.com/rre36/lab-pbr/wiki/Specular-Texture-Details" class="visit_url_original">https://github.com/rre36/lab-pbr/wiki/Specular-Texture-Details</a>
+                </span>
+
+            </div>
+            <div class="why_exist">
+                <a href="/">Why does this service exist?</a>
+            </div>
+        </nav>
+        <aside id="header_info">
+            <!-- Last Modified Date added around here from redirect checker-->
+        <p>📅 Last Modified: Tue, 23 Jun 2020 09:27:28 GMT</p></aside>
+        <article id="content">
+            <h1>Specular Texture Details - rre36/lab-pbr GitHub Wiki</h1>
+            <div id="mirrored"> <p><strong>Note that your shaderpack is only required to correctly read the smoothness (red) and f0 (green) data to be labPBR ready. The other specified datasets are optional components. More details about that can be found in the <a href="https://github.com/rre36/lab-pbr/wiki/Implementation-Requirements" rel="nofollow ugc">Implementation Requirements</a>.</strong></p>
+<h2><a href="#what-each-channel-represents" aria-hidden="true" class="anchor" id="what-each-channel-represents"></a>What each channel represents:</h2>
+<ul>
+<li>
+<h3><a href="#red" aria-hidden="true" class="anchor" id="red"></a>Red</h3>
+<ul>
+<li>Represents &quot;perceptual&quot; smoothness.
+<ul>
+<li>Convert perceptual smoothness to linear roughness with <code>roughness = pow(1 - perceptualSmoothness, 2)</code></li>
+<li>Convert linear roughness to perceptual smoothness with <code>perceptualSmoothness = 1 - sqrt(roughness)</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>For texture artists</strong> : A value of 255 (100%) results in a very smooth material (eg. polished granite). A value of 0 (0%) creates a rough material (eg. rocks).</p>
+</li>
+<li>
+<h3><a href="#green" aria-hidden="true" class="anchor" id="green"></a>Green</h3>
+<ul>
+<li>Values from 0 to 229 represent F0, also known as reflectance.
+This attribute is stored linearly. Please note that a value of 229 represents exactly 229 divided by 255, or approximately 90%, instead of 100%.</li>
+<li>Values from 230 to 255 represent various different metals.<br />
+Details about this range is provided below.</li>
+</ul>
+<p><strong>For texture artists</strong> : This can be described as the minimal reflection strength of the material. So a low f0 value results in a less intense reflection when looking directly at the material while a higher f0 value causes a stronger and more visible reflection. Unlike traditional specularity however this is not a multiplier for the reflection strength, meaning that reflections at flat angles will always be stronger (called &quot;Fresnel&quot;, more information about that here: <a href="https://www.researchgate.net/figure/Principle-of-the-Fresnel-effect-the-amount-of-reflection-on-a-reflective-surface-depends_fig3_319178578" rel="nofollow ugc">Principle of the Fresnel effect</a> )</p>
+</li>
+<li>
+<h3><a href="#blue" aria-hidden="true" class="anchor" id="blue"></a>Blue</h3>
+<ul>
+<li>
+<h4><a href="#on-dielectrics" aria-hidden="true" class="anchor" id="on-dielectrics"></a>On dielectrics:</h4>
+<ul>
+<li>Values from 0 to 64 represent porosity. Examples of the porosity effect can be found <a href="https://github.com/rre36/lab-pbr/wiki/Porosity-Examples" rel="nofollow ugc">here</a>.</li>
+<li>Values from 65 to 255 represent subsurface-scattering.</li>
+<li>Both porosity and subsurface-scattering are stored linearly.</li>
+</ul>
+</li>
+<li>
+<h4><a href="#on-metals" aria-hidden="true" class="anchor" id="on-metals"></a>On metals:</h4>
+<ul>
+<li>Reserved for future use.</li>
+</ul>
+</li>
+</ul>
+<p><strong>For texture artists</strong> : The porosity value describes how much water a material can absorb. This manifests in the color of the material getting darker and less reflective when wet. This allows for a much more accurate behavior with shaders supporting both porosity and weather based wetness (eg. puddles). Below are some example values.</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Porosity Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sand</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Wool</td>
+<td>38</td>
+</tr>
+<tr>
+<td>Wood</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Metals and other impermeable materials</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Examples of the porosity effect in action can be found <a href="https://github.com/rre36/lab-pbr/wiki/Porosity-Examples" rel="nofollow ugc">here</a>.</p>
+</li>
+<li>
+<h3><a href="#alpha" aria-hidden="true" class="anchor" id="alpha"></a>Alpha</h3>
+<ul>
+<li>it can have values from 0 to 254, 0 being 0% of emissiveness and 254 being 100%.</li>
+<li>This is stored linearly.</li>
+</ul>
+<p><strong>For texture artists</strong> : the lower the value the less light it will emit, the higher the more luminescent it'll be, but never use a value of 255 since this will cause it to be ignored.</p>
+</li>
+</ul>
+<h2><a href="#how-metals-work" aria-hidden="true" class="anchor" id="how-metals-work"></a>How metals work:</h2>
+<p>In order to allow a more accurate representation of metals with the limited amount of information that can be provided, certain metals have been predefined and are selected by setting the green channel to specific values from 230 to 254. In these cases, the albedo is used to tint the reflections instead of being used for diffuse shading.<br />
+If you want a metal that isn't among the predefined metals, you can also set the green channel to a value of 255. In this case, the albedo will instead be used as the F0. This is less accurate, but often it still gives decent results.</p>
+<p>Note that certain shaderpacks may not support these predefined metals, and will treat the entire range from 230 to 255 as though it had a value of 255.</p>
+<table>
+<thead>
+<tr>
+<th>Metal</th>
+<th>Bit Value</th>
+<th>N (R, G, B)</th>
+<th>K (R, G, B)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Iron</td>
+<td>230</td>
+<td>2.9114, 2.9497, 2.5845</td>
+<td>3.0893, 2.9318, 2.7670</td>
+</tr>
+<tr>
+<td>Gold</td>
+<td>231</td>
+<td>0.18299, 0.42108, 1.3734</td>
+<td>3.4242, 2.3459, 1.7704</td>
+</tr>
+<tr>
+<td>Aluminum</td>
+<td>232</td>
+<td>1.3456, 0.96521, 0.61722</td>
+<td>7.4746, 6.3995, 5.3031</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>233</td>
+<td>3.1071, 3.1812, 2.3230</td>
+<td>3.3314, 3.3291, 3.1350</td>
+</tr>
+<tr>
+<td>Copper</td>
+<td>234</td>
+<td>0.27105, 0.67693, 1.3164</td>
+<td>3.6092, 2.6248, 2.2921</td>
+</tr>
+<tr>
+<td>Lead</td>
+<td>235</td>
+<td>1.9100, 1.8300, 1.4400</td>
+<td>3.5100, 3.4000, 3.1800</td>
+</tr>
+<tr>
+<td>Platinum</td>
+<td>236</td>
+<td>2.3757, 2.0847, 1.8453</td>
+<td>4.2655, 3.7153, 3.1365</td>
+</tr>
+<tr>
+<td>Silver</td>
+<td>237</td>
+<td>0.15943, 0.14512, 0.13547</td>
+<td>3.9291, 3.1900, 2.3808</td>
+</tr>
+</tbody>
+</table>
+<h2><a href="#reasoning-for-this-specific-organization" aria-hidden="true" class="anchor" id="reasoning-for-this-specific-organization"></a>Reasoning for this specific organization:</h2>
+<p>For the red and green channels, it is fairly simple:</p>
+<ul>
+<li>Red represents smoothness in most previous formats, and there isn't a good reason to change that.</li>
+<li>Green represents metalness in most previous formats. Assigning values for partial metals, while not realistic, could often be used to somewhat control F0.</li>
+</ul>
+<p>For the rest, we only had two channels left for emission, porosity, and subsurface-scattering, so two of them had to be stored in the same channel.
+We chose to have porosity and subsurface-scattering in the same channel.</p>
+<p>Finally, placing emission in alpha allows the texture artist to easily make the emissive map separate from the rest and then merge it with _s as the alpha channel later, exactly like we do for parallax (POM) with _n.</p>
+ </div>
+        </article>
+        <nav id="index">
+            <a href="/m/rre36/lab-pbr/wiki_index">🗂️ Page Index for this GitHub Wiki</a>
+        </nav>
+    </div>
+</body>
+
+</html>

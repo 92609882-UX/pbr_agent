@@ -1,0 +1,260 @@
+<html>
+
+<head>
+    <title> Texture Naming - Null-MC/PixelGraph GitHub Wiki </title>
+    <style>
+        #main {
+            max-width: 38rem;
+            margin: auto;
+            overflow-wrap: break-word;
+            min-width: 0;
+            background-color: white;
+        }
+
+        body {
+            background-image: url('/callToAction.svg');
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #header_button {
+            position: sticky;
+            top: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #header_button p {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        #header_info {
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #content,
+        #index {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #footer_info {
+            position: sticky;
+            bottom: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+        }
+
+        #footer_info .blocks {
+            background: black;
+            color: white;
+            /* outline: 1px solid blue; */
+            padding: .1em .2em;
+        }
+
+        /* Hide useless-parts of transcluded HTML */
+        .width-full.input-group {
+            display: none;
+        }
+
+        h5:nth-last-child(2) {
+            display: none;
+        }
+
+        .Box-row.wiki-more-pages-link {
+            display: none;
+        }
+
+        .filter-bar {
+            display: none;
+        }
+
+        .Box-title>.octicon {
+            display: none;
+        }
+
+        .anchor {
+            display: none;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        #main {
+            word-wrap: break-word;
+        }
+
+        .Counter {
+            background-color: lightgray;
+            border-radius: 20px;
+            padding: 0 10px;
+        }
+
+        table {
+            max-width: 100%;
+            overflow: auto;
+            width: 100%;
+            display: block;
+        }
+
+        .js-wiki-sidebar-toc-toggle-chevron-button {
+            display: none;
+        }
+
+        a.visit_url_original {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2em; /* adjust as needed */
+            max-height: 1.2em; /* should match line-height */
+            display: block;
+        }
+
+        /* White background for span */
+        /* Rounded corners */
+        /* Black border */
+        .visit_url_pillbar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+            display: block;
+            border: 1px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Broken Images */
+        img:before {
+            content: "⚠️ MISSING OR BROKEN IMAGE RENDERING ERROR: PLEASE VIEW ORIGINAL PAGE ON GITHUB.COM ⚠️";
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @font-face {
+            font-family: "color-emoji";
+            src: local("Apple Color Emoji"),
+                local("Segoe UI Emoji"),
+                local("Segoe UI Symbol"),
+                local("Noto Color Emoji");
+        }
+
+        .emoji {
+            font-family: "color-emoji";
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .visit_url_link {
+            font-size: xx-large;
+        }
+
+        .why_exist {
+            position: relative;
+            text-align: center;
+            /* italics */
+            font-style: italic;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Not used, did not want to risk non-indexing. -->
+    <!-- <meta property="og:url" content="https://github.com/Null-MC/PixelGraph/wiki/Texture-Naming"> -->
+    <!-- Did not want to risk contaminating content to be indexed. -->
+    <!-- <meta property="og:description" content="not used"> -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Texture Naming - Null-MC/PixelGraph GitHub Wiki">
+</head>
+
+<body>
+    <div id="main">
+        <nav id="header_button">
+            <p>Content mirrored for search engine indexing from:</p>
+            <div>
+                <span class="visit_url_pillbar">
+                    <a href="https://github.com/Null-MC/PixelGraph/wiki/Texture-Naming" class="visit_url_original">https://github.com/Null-MC/PixelGraph/wiki/Texture-Naming</a>
+                </span>
+
+            </div>
+            <div class="why_exist">
+                <a href="/">Why does this service exist?</a>
+            </div>
+        </nav>
+        <aside id="header_info">
+            <!-- Last Modified Date added around here from redirect checker-->
+        <p>📅 Last Modified: Mon, 17 Jan 2022 09:29:36 GMT</p></aside>
+        <article id="content">
+            <h1>Texture Naming - Null-MC/PixelGraph GitHub Wiki</h1>
+            <div id="mirrored"> <p>Two methods for supported for storing material textures in your project, <em>Global</em> and <em>Local</em>. You can use both in your project, but only one per material.</p>
+<h2><a href="#local-structure" aria-hidden="true" class="anchor" id="local-structure"></a>Local Structure</h2>
+<p>Each material is stored in a separate folder named after the item. This folder contains all of the named textures used by the material, and a <code>mat.yml</code> file defining the material.</p>
+<pre><code>~/lantern/mat.yml         *material definition
+~/lantern/mat.mcmeta      *optional material animation definition
+~/lantern/opacity.png
+~/lantern/color.png
+~/lantern/height.png
+~/lantern/occlusion.png
+~/lantern/normal.png
+~/lantern/specular.png
+~/lantern/smooth.png
+~/lantern/rough.png
+~/lantern/metal.png
+~/lantern/f0.png
+~/lantern/porosity.png
+~/lantern/sss.png
+~/lantern/emissive.png
+</code></pre>
+<h2><a href="#global-structure" aria-hidden="true" class="anchor" id="global-structure"></a>Global Structure</h2>
+<p>Stores material textures together instead of using separate folders. This can be useful when sharing textures between multiple materials.</p>
+<pre><code>~/lantern.mat.yml    (material)
+~/lantern_a.png      (alpha/opacity)
+~/lantern.png        (color)
+~/lantern_h.png      (height)
+~/lantern_ao.png     (occlusion)
+~/lantern_n.png      (normal)
+~/lantern_s.png      (specular)
+~/lantern_smooth.png (smooth)
+~/lantern_rough.png  (rough)
+~/lantern_metal.png  (metal)
+~/lantern_f0.png     (f0)
+~/lantern_p.png      (porosity)
+~/lantern_sss.png    (SSS)
+~/lantern_e.png      (emissive)
+</code></pre>
+ </div>
+        </article>
+        <nav id="index">
+            <a href="/m/Null-MC/PixelGraph/wiki_index">🗂️ Page Index for this GitHub Wiki</a>
+        </nav>
+    </div>
+</body>
+
+</html>

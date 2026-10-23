@@ -1,0 +1,325 @@
+<html>
+
+<head>
+    <title> PBR Channel Encoding - Null-MC/PixelGraph GitHub Wiki </title>
+    <style>
+        #main {
+            max-width: 38rem;
+            margin: auto;
+            overflow-wrap: break-word;
+            min-width: 0;
+            background-color: white;
+        }
+
+        body {
+            background-image: url('/callToAction.svg');
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #header_button {
+            position: sticky;
+            top: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #header_button p {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        #header_info {
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #content,
+        #index {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #footer_info {
+            position: sticky;
+            bottom: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+        }
+
+        #footer_info .blocks {
+            background: black;
+            color: white;
+            /* outline: 1px solid blue; */
+            padding: .1em .2em;
+        }
+
+        /* Hide useless-parts of transcluded HTML */
+        .width-full.input-group {
+            display: none;
+        }
+
+        h5:nth-last-child(2) {
+            display: none;
+        }
+
+        .Box-row.wiki-more-pages-link {
+            display: none;
+        }
+
+        .filter-bar {
+            display: none;
+        }
+
+        .Box-title>.octicon {
+            display: none;
+        }
+
+        .anchor {
+            display: none;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        #main {
+            word-wrap: break-word;
+        }
+
+        .Counter {
+            background-color: lightgray;
+            border-radius: 20px;
+            padding: 0 10px;
+        }
+
+        table {
+            max-width: 100%;
+            overflow: auto;
+            width: 100%;
+            display: block;
+        }
+
+        .js-wiki-sidebar-toc-toggle-chevron-button {
+            display: none;
+        }
+
+        a.visit_url_original {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2em; /* adjust as needed */
+            max-height: 1.2em; /* should match line-height */
+            display: block;
+        }
+
+        /* White background for span */
+        /* Rounded corners */
+        /* Black border */
+        .visit_url_pillbar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+            display: block;
+            border: 1px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Broken Images */
+        img:before {
+            content: "⚠️ MISSING OR BROKEN IMAGE RENDERING ERROR: PLEASE VIEW ORIGINAL PAGE ON GITHUB.COM ⚠️";
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @font-face {
+            font-family: "color-emoji";
+            src: local("Apple Color Emoji"),
+                local("Segoe UI Emoji"),
+                local("Segoe UI Symbol"),
+                local("Noto Color Emoji");
+        }
+
+        .emoji {
+            font-family: "color-emoji";
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .visit_url_link {
+            font-size: xx-large;
+        }
+
+        .why_exist {
+            position: relative;
+            text-align: center;
+            /* italics */
+            font-style: italic;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Not used, did not want to risk non-indexing. -->
+    <!-- <meta property="og:url" content="https://github.com/Null-MC/PixelGraph/wiki/PBR-Channel-Encoding"> -->
+    <!-- Did not want to risk contaminating content to be indexed. -->
+    <!-- <meta property="og:description" content="not used"> -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="PBR Channel Encoding - Null-MC/PixelGraph GitHub Wiki">
+</head>
+
+<body>
+    <div id="main">
+        <nav id="header_button">
+            <p>Content mirrored for search engine indexing from:</p>
+            <div>
+                <span class="visit_url_pillbar">
+                    <a href="https://github.com/Null-MC/PixelGraph/wiki/PBR-Channel-Encoding" class="visit_url_original">https://github.com/Null-MC/PixelGraph/wiki/PBR-Channel-Encoding</a>
+                </span>
+
+            </div>
+            <div class="why_exist">
+                <a href="/">Why does this service exist?</a>
+            </div>
+        </nav>
+        <aside id="header_info">
+            <!-- Last Modified Date added around here from redirect checker-->
+        <p>📅 Last Modified: Thu, 29 Oct 2020 19:11:46 GMT</p></aside>
+        <article id="content">
+            <h1>PBR Channel Encoding - Null-MC/PixelGraph GitHub Wiki</h1>
+            <div id="mirrored"> 
+              <div class="markdown-body">
+                <div class="markdown-heading"><h2 class="heading-element">Channels</h2><a aria-label="Permalink: Channels" class="anchor" href="#channels" id="user-content-channels"><svg aria-hidden="true" class="octicon octicon-link" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul>
+<li>
+<code>albedo-r</code>: The red value of the albedo color.</li>
+<li>
+<code>albedo-g</code>: The green value of the albedo color.</li>
+<li>
+<code>albedo-b</code>: The blue value of the albedo color.</li>
+<li>
+<code>albedo-a</code>: The alpha value of the albedo color.</li>
+<li>
+<code>height</code>: The height value; for generated normal and/or POM.</li>
+<li>
+<code>normal-x</code>: The X value of the normal vector.</li>
+<li>
+<code>normal-y</code>: The Y value of the normal vector.</li>
+<li>
+<code>normal-z</code>: The Z value of the normal vector.</li>
+<li>
+<code>occlusion</code>: The level of ambient occlusion.</li>
+<li>
+<code>smooth</code>: The level of smoothness.</li>
+<li>
+<code>smooth2</code>: The level of perceptual smoothness.</li>
+<li>
+<code>rough</code>: The level of roughness.</li>
+<li>
+<code>metal</code>: The level of metalness.</li>
+<li>
+<code>emissive</code>: The level of emissive lighting.</li>
+<li>
+<code>emissive-clip</code>: Emissive for LabPbr; shifted down by <code>1</code> and clipped at <code>255</code>.</li>
+<li>
+<code>porosity</code>: The level of porousness; The amount of absorption and discoloration caused by wetness.</li>
+<li>
+<code>sss</code>: The level of sub-surface-scattering; The amount of scattered light absorbed by the back-surface.</li>
+</ul>
+<div class="markdown-heading"><h2 class="heading-element">Albedo</h2><a aria-label="Permalink: Albedo" class="anchor" href="#albedo" id="user-content-albedo"><svg aria-hidden="true" class="octicon octicon-link" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p><strong>albedo.input.r</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the red color channel of the source #albedo texture.</p>
+<p><strong>albedo.input.g</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the green color channel of the source #albedo texture.</p>
+<p><strong>albedo.input.b</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the blue color channel of the source #albedo texture.</p>
+<p><strong>albedo.input.a</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the alpha color channel of the source #albedo texture.</p>
+<p><strong>output.albedo</strong> = <code>true | false</code><br>
+Sets whether a final albedo texture should be published. Default is <code>true</code>.</p>
+<p><strong>output.albedo.r</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the red color channel of the final #albedo texture.</p>
+<p><strong>output.albedo.g</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the green color channel of the final #albedo texture.</p>
+<p><strong>output.albedo.b</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the blue color channel of the final #albedo texture.</p>
+<p><strong>output.albedo.a</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the alpha color channel of the final #albedo texture.</p>
+<div class="markdown-heading"><h2 class="heading-element">Height</h2><a aria-label="Permalink: Height" class="anchor" href="#height" id="user-content-height"><svg aria-hidden="true" class="octicon octicon-link" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p><strong>height.input.r</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the red color channel of the source #height texture.</p>
+<p><strong>height.input.g</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the green color channel of the source #height texture.</p>
+<p><strong>height.input.b</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the blue color channel of the source #height texture.</p>
+<p><strong>height.input.a</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the alpha color channel of the source #height texture.</p>
+<p><strong>output.height</strong> = <code>true | false</code><br>
+Sets whether a final height texture should be published. Default is <code>false</code>.</p>
+<p><strong>output.height.r</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the red color channel of the final #height texture.</p>
+<p><strong>output.height.g</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the green color channel of the final #height texture.</p>
+<p><strong>output.height.b</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the blue color channel of the final #height texture.</p>
+<p><strong>output.height.a</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the alpha color channel of the final #height texture.</p>
+<div class="markdown-heading"><h2 class="heading-element">Normal</h2><a aria-label="Permalink: Normal" class="anchor" href="#normal" id="user-content-normal"><svg aria-hidden="true" class="octicon octicon-link" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p><strong>normal.input.r</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the red color channel of the source #normal texture.</p>
+<p><strong>normal.input.g</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the green color channel of the source #normal texture.</p>
+<p><strong>normal.input.b</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the blue color channel of the source #normal texture.</p>
+<p><strong>normal.input.a</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to read from the alpha color channel of the source #normal texture.</p>
+<p><strong>output.normal</strong> = <code>true | false</code><br>
+Sets whether a final normal texture should be published. Default is <code>true</code>.</p>
+<p><strong>output.normal.r</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the red color channel of the final #normal texture.</p>
+<p><strong>output.normal.g</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the green color channel of the final #normal texture.</p>
+<p><strong>output.normal.b</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the blue color channel of the final #normal texture.</p>
+<p><strong>output.normal.a</strong> = <code>&lt;channel&gt;</code><br>
+Specifies the material channel to write to the alpha color channel of the final #normal texture.</p>
+<hr>
+<p>TODO</p>
+
+              </div>
+
+           <h6>⚠️ **GitHub.com Fallback** ⚠️</h6> </div>
+        </article>
+        <nav id="index">
+            <a href="/m/Null-MC/PixelGraph/wiki_index">🗂️ Page Index for this GitHub Wiki</a>
+        </nav>
+    </div>
+</body>
+
+</html>

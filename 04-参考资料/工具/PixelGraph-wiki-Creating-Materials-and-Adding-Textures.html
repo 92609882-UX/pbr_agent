@@ -1,0 +1,234 @@
+<html>
+
+<head>
+    <title> Creating Materials and Adding Textures - Null-MC/PixelGraph GitHub Wiki </title>
+    <style>
+        #main {
+            max-width: 38rem;
+            margin: auto;
+            overflow-wrap: break-word;
+            min-width: 0;
+            background-color: white;
+        }
+
+        body {
+            background-image: url('/callToAction.svg');
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #header_button {
+            position: sticky;
+            top: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #header_button p {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        #header_info {
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #content,
+        #index {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #footer_info {
+            position: sticky;
+            bottom: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+        }
+
+        #footer_info .blocks {
+            background: black;
+            color: white;
+            /* outline: 1px solid blue; */
+            padding: .1em .2em;
+        }
+
+        /* Hide useless-parts of transcluded HTML */
+        .width-full.input-group {
+            display: none;
+        }
+
+        h5:nth-last-child(2) {
+            display: none;
+        }
+
+        .Box-row.wiki-more-pages-link {
+            display: none;
+        }
+
+        .filter-bar {
+            display: none;
+        }
+
+        .Box-title>.octicon {
+            display: none;
+        }
+
+        .anchor {
+            display: none;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        #main {
+            word-wrap: break-word;
+        }
+
+        .Counter {
+            background-color: lightgray;
+            border-radius: 20px;
+            padding: 0 10px;
+        }
+
+        table {
+            max-width: 100%;
+            overflow: auto;
+            width: 100%;
+            display: block;
+        }
+
+        .js-wiki-sidebar-toc-toggle-chevron-button {
+            display: none;
+        }
+
+        a.visit_url_original {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2em; /* adjust as needed */
+            max-height: 1.2em; /* should match line-height */
+            display: block;
+        }
+
+        /* White background for span */
+        /* Rounded corners */
+        /* Black border */
+        .visit_url_pillbar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+            display: block;
+            border: 1px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Broken Images */
+        img:before {
+            content: "⚠️ MISSING OR BROKEN IMAGE RENDERING ERROR: PLEASE VIEW ORIGINAL PAGE ON GITHUB.COM ⚠️";
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @font-face {
+            font-family: "color-emoji";
+            src: local("Apple Color Emoji"),
+                local("Segoe UI Emoji"),
+                local("Segoe UI Symbol"),
+                local("Noto Color Emoji");
+        }
+
+        .emoji {
+            font-family: "color-emoji";
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .visit_url_link {
+            font-size: xx-large;
+        }
+
+        .why_exist {
+            position: relative;
+            text-align: center;
+            /* italics */
+            font-style: italic;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Not used, did not want to risk non-indexing. -->
+    <!-- <meta property="og:url" content="https://github.com/Null-MC/PixelGraph/wiki/Creating-Materials-and-Adding-Textures"> -->
+    <!-- Did not want to risk contaminating content to be indexed. -->
+    <!-- <meta property="og:description" content="not used"> -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Creating Materials and Adding Textures - Null-MC/PixelGraph GitHub Wiki">
+</head>
+
+<body>
+    <div id="main">
+        <nav id="header_button">
+            <p>Content mirrored for search engine indexing from:</p>
+            <div>
+                <span class="visit_url_pillbar">
+                    <a href="https://github.com/Null-MC/PixelGraph/wiki/Creating-Materials-and-Adding-Textures" class="visit_url_original">https://github.com/Null-MC/PixelGraph/wiki/Creating-Materials-and-Adding-Textures</a>
+                </span>
+
+            </div>
+            <div class="why_exist">
+                <a href="/">Why does this service exist?</a>
+            </div>
+        </nav>
+        <aside id="header_info">
+            <!-- Last Modified Date added around here from redirect checker-->
+        <p>📅 Last Modified: Tue, 26 Jan 2021 06:52:17 GMT</p></aside>
+        <article id="content">
+            <h1>Creating Materials and Adding Textures - Null-MC/PixelGraph GitHub Wiki</h1>
+            <div id="mirrored"> <h1><a href="#using-the-user-interface" aria-hidden="true" class="anchor" id="using-the-user-interface"></a>Using the User Interface</h1>
+<p>No features currently exist in the UI for adding materials or textures. See the section below for manual usage.</p>
+<h1><a href="#manual--command-line-usage" aria-hidden="true" class="anchor" id="manual--command-line-usage"></a>Manual / Command-Line Usage</h1>
+<p>Materials can be manually created by making a folder named after the target item, and adding an empty text file named <code>pbr.yml</code>. See <a href="/m/Null-MC/PixelGraph/wiki/Material-Properties">Material Properties</a> for further material options.</p>
+<p>To add textures, simply add the files to the materials folder and make sure they are named after the matching channel. See <a href="/m/Null-MC/PixelGraph/wiki/Texture-Naming">Texture Naming</a> for more details.</p>
+<pre><code>~/assets/minecraft/textures/blocks/bricks/pbr.yml
+                                        ~/albedo.png
+                                        ~/height.png
+                                        ~/normal.png
+</code></pre>
+ </div>
+        </article>
+        <nav id="index">
+            <a href="/m/Null-MC/PixelGraph/wiki_index">🗂️ Page Index for this GitHub Wiki</a>
+        </nav>
+    </div>
+</body>
+
+</html>

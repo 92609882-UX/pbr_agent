@@ -1,0 +1,40 @@
+This page lists requirements for shader and resource packs to be considered [[LabPBR Material Standard|LabPBR]]-compliant.
+
+= Shader Packs =
+
+== Required Components ==
+*Decoding of the RGB channels into the correct material data.
+*Decoding of the f0/reflectance data into the metallic data, as described in the [[LabPBR Material Standard#Specular Texture (_s)|specular texture details]].
+**Hardcoded metals are optional.
+*Reconstruction of the z-component of the normal map using the method described in the [[LabPBR Material Standard#Normal Texture (_n)|normal texture details]].
+
+== Optional Components ==
+*Processing of porosity data.
+*Processing of subsurface scattering data.
+*Processing of emission data.
+*Processing of material AO.
+*Use of the provided height map for effects like POM.
+*Use of hardcoded metal types.
+
+
+If any optional components are supported, they shall be enabled out of the box when enabling resource pack support. However, expensive effects like POM are excluded from this.
+
+= Resource Packs =
+
+== Required Components ==
+*Use of the correct channel assignments of the data, as described in the [[LabPBR Material Standard#Specular Texture (_s)|specular texture details]].
+
+== Optional Components ==
+*Storing a normal map in the normal texture.
+*Storing a height map in the normal texture.
+*Providing porosity data.
+*Providing subsurface scattering data.
+*Providing emission data.
+*Providing material AO.
+
+
+'''IMPORTANT'''<br/>
+Resource and shader packs are required to be designed to work properly if one of the optional features is left unused on either side. The inclusion of optional features is up to the artist/developer, but especially shader packs are encouraged to support as many of the optional features as possible.
+
+
+[[Category:LabPBR]]

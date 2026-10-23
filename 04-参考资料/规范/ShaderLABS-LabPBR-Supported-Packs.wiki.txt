@@ -1,0 +1,317 @@
+= Shader Packs =
+These shader packs have approved support for the LabPBR standard.
+
+{| class="wikitable wikitable--stripe"
+|- class="citizen-overflow-sticky-header"
+! Name !! Link !! Porosity !! SSS !! Emission !! Material AO !! POM !! Hardcoded Metals !!  LabPBR Version
+|-
+|Arc
+|[https://www.curseforge.com/minecraft/customization/arc-shader CurseForge]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|1.3
+|-
+| AstraLex ||[https://lextermina7.wixsite.com/astralex Website]|| ✔️ || ✔️ || ✔️ || ✔️ || ✔️ || ✔️ || 1.3
+|-
+| BSL || [https://bitslablab.com/ Website] || ✔️ || ✔️ || ✔️ || ✔️ || ✔️ || ✔️ || 1.3
+|-
+| Chronos Path Tracer || [https://discord.gg/ppEQz4s Discord] || ❌ || ❌ || ❌ || ✔️ || ❌ || ✔️ || 1.3
+|-
+| Chocapic13 || [https://discord.gg/RpzWN9S Discord] || ✔️ || ❌ || ❌ || ✔️ || ✔️ || ❌ || 1.3
+|-
+| Complementary Shaders || [https://www.complementary.dev/ Website] || ❌ || ❌ || ✔️ || ✔️ || ✔️ || ✔️ || 1.3
+|-
+| Continuum RT || [https://continuum.graphics/continuum-rt/ Website] || ❌ || ❌ || ✔️ || ✔️ || ✔️ || ✔️ || 1.3
+|-
+| Continuum || [https://continuum.graphics/continuum-shaders/ Website] || ❌ || ❌ || ❌ || ✔️ || ✔️ || ✔️ || 1.3
+|-
+| DrDestens MinecraftShaders||[https://www.curseforge.com/minecraft/customization/drdestens-minecraftshaders CurseForge]|| ❌|| ✔️||✔️||✔️ || ✔️||✔️||1.3
+|-
+| Ebin Resurrected||[https://projects.jbritain.net/Ebin-Shaders-Resurrected/ Website]|| ✔️|| ✔️||✔️||✔️ || ✔️||✔️||1.3
+|-
+|Fayer3's Enhanced Default Edit ||[https://discord.gg/RpzWN9S Discord]||✔️||✔️||✔️||✔️||✔️||✔️||1.3
+|-
+|Fraction||[https://discord.gg/Pj7aXg3 Discord]||✔️||✔️||✔️||✔️||✔️||✔️||1.3
+|-
+|Glimmer
+|[https://modrinth.com/shader/glimmer-shaders Modrinth]
+|❌
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|1.3
+|-
+|Kappa Shader||[https://rre36.com/kappa-shader Website]||✔️||✔️||✔️||✔️||✔️ || ✔️ || 1.3
+|-
+|KappaPT
+|[https://rre36.com/kappapt Website]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|1.3
+|-
+|Loop||[https://github.com/espen96/Loop/tree/loop2 GitHub]||✔️ ||✔️||✔️||✔️||✔️||✔️||1.3
+|-
+|Melon||[https://github.com/TheJSHuA/MelonShaders GitHub]||✔️ || ❌||✔️||❌||❌||✔️||1.3
+|-
+|MollyVX ||[https://rutherin.netlify.app/mollyvx.html Website]||❌||❌ ||✔️||❌||✔️||❌||1.3
+|-
+|MollyVX-Extension
+|[https://github.com/Glow-Knight/MollyVX-Extension GitHub]
+|✔️
+|✔️
+|✔️
+|❌
+|✔️
+|❌
+|1.3
+|-
+|Noble||[https://www.curseforge.com/minecraft/customization/noble-shaders CurseForge]<nowiki> | </nowiki>[https://modrinth.com/shader/noble Modrinth]||✔️ ||✔️||✔️||✔️||✔️||✔️||1.3
+|-
+|NobleVX||[https://www.patreon.com/Belmu Patreon]||❌ ||❌||✔️||✔️||✔️||✔️||1.3
+|-
+|Nostalgia Shader||[https://rre36.com/nostalgia-shader Website]||✔️||✔️||✔️||✔️||✔️||✔️ ||1.3
+|-
+|NostalgiaVX
+|[https://rre36.com/nostalgiavx Website]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|1.3
+|-
+|Photon 
+|[https://github.com/sixthsurge/photon GitHub]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|1.3
+|-
+|Raspberry||[https://rutherin.netlify.com/rasp.html Website]||❌||❌ || ✔️||❌||❌||❌||1.3
+|-
+|RRe36's Shader||[https://rre36.com/rre36s-shader Website]||✔️ ||❌||✔️||✔️||❌||✔️||1.1
+|-
+|Shrimple
+|[https://modrinth.com/shader/shrimple Modrinth]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|1.3
+|-
+|Simplicissimus||[https://rre36.com/simplicissimus-shader Website]||❌||❌||✔️||✔️||❌||❌||1.3
+|-
+|Soft Voxels||[https://rre36.com/soft-voxels Website]||✔️||❌||✔️||✔️||✔️||✔️ ||1.3
+|-
+|Spectrum||[https://github.com/zombye/spectrum GitHub]||❌||✔️||✔️||✔️||✔️|| ✔️||1.3
+|-
+|stduhpf's universalis shader||[https://github.com/stduhpf/universalis/ GitHub]|| ✔️|| ✔️|| ✔️|| ✔️|| ✔️||❌||1.3
+|-
+|Voyager Shader||[https://www.curseforge.com/minecraft/customization/voyager-shader-2-0 CurseForge] | [https://modrinth.com/shader/voyager-shader-2.0 Modrinth]||✔️ || ❌||✔️||✔️||✔️ ||✔️||1.3
+|-
+|Vanilla Plus||[https://rre36.com/vanilla-plus Website]|| ❌||❌||✔️||✔️||❌ ||✔️||1.3
+|-
+| Ymir ||[https://ymir-graphics.github.io/ Website]||❌||❌|| ❌||✔️||❌||✔️|| 1.2
+|}
+
+This list may also take public development versions into account, so make sure to also check the distribution channels for these versions.
+
+=Resource Packs=
+Note that thanks to the [https://github.com/flodri/RGBA-Formats-Converter/releases/tag/0.4 converter] '''any resource packs with PBR materials''' can support this format with some clicks and almost no work. This list only contains resource packs specifically created/modified with LabPBR in mind.
+
+{| class="wikitable wikitable--stripe"
+|- class="citizen-overflow-sticky-header"
+!Name!!Link !! Normals!!Height Map!!AO!!Porosity!!Emission!!SSS
+|-
+|Aequalis
+|[https://curseforge.com/minecraft/texture-packs/aequalis Curseforge]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|AlexTestria's Brickcraft
+|[https://brickcraft.de Website]
+|✔️
+|❌
+|✔️
+|❌
+|✔️
+|✔️
+|-
+|Amulet
+|[https://zaurastudios.com/Amulet/ Website]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|AVPBR Retextured
+|[https://modrinth.com/resourcepack/avpbr-retextured Modrinth]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Control in Minecraft
+|[https://control-in-minecraft.de Website]
+|✔️
+|❌
+|✔️
+|❌
+|✔️
+|❌
+|-
+|Create-PBR
+|[https://www.curseforge.com/minecraft/texture-packs/create-pbr CurseForge]
+|✔️
+|✔️
+|❌
+|✔️
+|✔️
+|✔️
+|-
+|Faithful PBR Autogen
+|[https://www.curseforge.com/minecraft/texture-packs/faithful-pbr-autongen CurseForge]<nowiki> | </nowiki>[https://github.com/papachefcool/Faithful-PBR-AutoGen Github]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Flodri's High-Res Tests||[https://discord.gg/RpzWN9S shaderLABS Discord]||✔️||✔️||❌||✔️||✔️||❌
+|-
+|Flodri Smooth Vanilla||[https://www.curseforge.com/minecraft/texture-packs/flodri-smooth-vanilla-16x-pbr CurseForge]||✔️||✔️||❌||✔️||✔️||✔️
+|-
+|Flows Photo Realism||[https://anthonyagn.github.io/others.html Website]||✔️||✔️||❌||✔️||✔️||❌
+|-
+|Galactic Block: Empire's Legacy!||[https://www.patreon.com/Galactic_Block/#GB Patreon]||✔️||✔️||✔️||❌||✔️||✔️
+|-
+|HardTop Vanillaccurate Pack||[https://vanillaccurate.space/vanillaccurate Website]||✔️||✔️||✔️||✔️||✔️||✔️
+|-
+|HardTop Realaccurate Pack||[https://hardtopnet.ovh/download/ Website]||✔️||✔️||✔️||✔️||✔️||✔️
+|-
+|HardTop Toonaccurate Pack||[https://hardtopnet.ovh/download/ Website]||✔️ ||✔️||✔️||✔️||✔️||✔️
+|-
+|MegaReal Pack
+|[https://www.curseforge.com/minecraft/texture-packs/megareal-pack-pbr CurseForge]
+|✔️
+|❌
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Matteo Rizzo: Pastello||[http://matteorizzo.com/pastello Website]||✔️||✔️||✔️||✔️||✔️||✔️
+|-
+|Optimum Realism
+|[https://www.optimumrealism.com/ Website]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Roundista
+|[https://www.shivamzter.com/roundista Website]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Simplista
+|[https://www.shivamzter.com/simplista Website]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Stylista
+|[https://www.shivamzter.com/stylista Website]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Stratum||[https://continuum.graphics/#stratum Website]||✔️||✔️||✔️||❌||✔️||❌
+|-
+|SubtlePBR
+|[https://zaurastudios.com/Amulet/ Website]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Super Miner Bros!||[https://superminerbros.my.canva.site/#SMB Website]||✔️||✔️||✔️||❌||✔️||✔️
+|-
+|Symmetry PBR
+|[https://www.patreon.com/BurnblazeX Patreon]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Textureless
+|[https://www.curseforge.com/minecraft/texture-packs/textureless CurseForge]<nowiki> | </nowiki>[https://github.com/null511/MCRP-Textureless/releases GitHub]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|-
+|Vanilla Normals Renewed
+|[https://github.com/Poudingue/Vanilla-Normals-Renewed GitHub]
+|✔️
+|✔️
+|✔️
+|❌
+|✔️
+|❌
+|-
+|Void_ Textures
+|[https://www.patreon.com/VoidGraphics Patreon]
+|✔️
+|✔️
+|✔️
+|✔️
+|✔️
+|❌
+|-
+|Weed Eater||[https://www.curseforge.com/minecraft/texture-packs/arr-tee-ecks-128x-pbr-materials CurseForge]||✔️||❌||❌||❌||✔️||❌
+|}
+[[Category:LabPBR]]

@@ -1,0 +1,267 @@
+<html>
+
+<head>
+    <title> Generating Normal Maps - Null-MC/PixelGraph GitHub Wiki </title>
+    <style>
+        #main {
+            max-width: 38rem;
+            margin: auto;
+            overflow-wrap: break-word;
+            min-width: 0;
+            background-color: white;
+        }
+
+        body {
+            background-image: url('/callToAction.svg');
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #header_button {
+            position: sticky;
+            top: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #header_button p {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+        #header_info {
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+            font-size: large;
+        }
+
+        #content,
+        #index {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #footer_info {
+            position: sticky;
+            bottom: 0;
+            padding: 10px;
+            border-style: ridge;
+            border-color: lightgrey;
+            border-width: thin;
+            color: red;
+            font-weight: bold;
+            background-color: honeydew;
+        }
+
+        #footer_info .blocks {
+            background: black;
+            color: white;
+            /* outline: 1px solid blue; */
+            padding: .1em .2em;
+        }
+
+        /* Hide useless-parts of transcluded HTML */
+        .width-full.input-group {
+            display: none;
+        }
+
+        h5:nth-last-child(2) {
+            display: none;
+        }
+
+        .Box-row.wiki-more-pages-link {
+            display: none;
+        }
+
+        .filter-bar {
+            display: none;
+        }
+
+        .Box-title>.octicon {
+            display: none;
+        }
+
+        .anchor {
+            display: none;
+        }
+
+        pre {
+            overflow: auto;
+        }
+
+        #main {
+            word-wrap: break-word;
+        }
+
+        .Counter {
+            background-color: lightgray;
+            border-radius: 20px;
+            padding: 0 10px;
+        }
+
+        table {
+            max-width: 100%;
+            overflow: auto;
+            width: 100%;
+            display: block;
+        }
+
+        .js-wiki-sidebar-toc-toggle-chevron-button {
+            display: none;
+        }
+
+        a.visit_url_original {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2em; /* adjust as needed */
+            max-height: 1.2em; /* should match line-height */
+            display: block;
+        }
+
+        /* White background for span */
+        /* Rounded corners */
+        /* Black border */
+        .visit_url_pillbar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 5px;
+            display: block;
+            border: 1px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Broken Images */
+        img:before {
+            content: "⚠️ MISSING OR BROKEN IMAGE RENDERING ERROR: PLEASE VIEW ORIGINAL PAGE ON GITHUB.COM ⚠️";
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @font-face {
+            font-family: "color-emoji";
+            src: local("Apple Color Emoji"),
+                local("Segoe UI Emoji"),
+                local("Segoe UI Symbol"),
+                local("Noto Color Emoji");
+        }
+
+        .emoji {
+            font-family: "color-emoji";
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .visit_url_link {
+            font-size: xx-large;
+        }
+
+        .why_exist {
+            position: relative;
+            text-align: center;
+            /* italics */
+            font-style: italic;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Not used, did not want to risk non-indexing. -->
+    <!-- <meta property="og:url" content="https://github.com/Null-MC/PixelGraph/wiki/Generating-Normal-Maps"> -->
+    <!-- Did not want to risk contaminating content to be indexed. -->
+    <!-- <meta property="og:description" content="not used"> -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Generating Normal Maps - Null-MC/PixelGraph GitHub Wiki">
+</head>
+
+<body>
+    <div id="main">
+        <nav id="header_button">
+            <p>Content mirrored for search engine indexing from:</p>
+            <div>
+                <span class="visit_url_pillbar">
+                    <a href="https://github.com/Null-MC/PixelGraph/wiki/Generating-Normal-Maps" class="visit_url_original">https://github.com/Null-MC/PixelGraph/wiki/Generating-Normal-Maps</a>
+                </span>
+
+            </div>
+            <div class="why_exist">
+                <a href="/">Why does this service exist?</a>
+            </div>
+        </nav>
+        <aside id="header_info">
+            <!-- Last Modified Date added around here from redirect checker-->
+        <p>📅 Last Modified: Tue, 26 Jan 2021 05:52:17 GMT</p></aside>
+        <article id="content">
+            <h1>Generating Normal Maps - Null-MC/PixelGraph GitHub Wiki</h1>
+            <div id="mirrored"> 
+              <div class="markdown-body">
+                <p>Support for generating normal-maps is built-in to PixelGraph. They can be manually "pre-baked" into the project, or automatically generated during publishing.</p>
+<div class="markdown-heading"><h1 class="heading-element">Using the User Interface</h1><a aria-label="Permalink: Using the User Interface" class="anchor" href="#using-the-user-interface" id="user-content-using-the-user-interface"><svg aria-hidden="true" class="octicon octicon-link" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<a href="https://github.com/null511/PixelGraph/raw/master/media/wiki/normal-properties.png" rel="nofollow ugc">
+<img alt="Normal Properties" height="320" src="https://github.com/null511/PixelGraph/raw/master/media/wiki/normal-properties.png">
+</a>
+<div class="markdown-heading"><h4 class="heading-element">Properties</h4><a aria-label="Permalink: Properties" class="anchor" href="#properties" id="user-content-properties"><svg aria-hidden="true" class="octicon octicon-link" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul>
+<li>
+<strong>Filter</strong> - One of the above normal-map filters. Default value is <code>Sobel3</code>.</li>
+<li>
+<strong>Strength</strong> - The strength of the generated normals. Default value is <code>1.0</code>.</li>
+</ul>
+<div class="markdown-heading"><h4 class="heading-element">Filters</h4><a aria-label="Permalink: Filters" class="anchor" href="#filters" id="user-content-filters"><svg aria-hidden="true" class="octicon octicon-link" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul>
+<li>
+<p><code>sobel3</code> - This is the most commonly used filter for generating normal maps, and uses a simple Sobel3x3 filter.</p>
+</li>
+<li>
+<p><code>sobel-high</code> - A variant of the Sobel3x3 filter using high-pass filtering on the kernel to produce "single-pixel" normals. This will limit normals to only being generated for "lower" pixels.</p>
+</li>
+<li>
+<p><code>sobel-low</code> - A variant of the Sobel3x3 filter using low-pass filtering on the kernel to produce "single-pixel" normals. This will limit normals to only being generated for "higher" pixels.</p>
+</li>
+<li>
+<p><code>variance</code> - An experimental filter using a combination of down-sampling and variance-mapping to better capture both high and low frequency curves.</p>
+</li>
+</ul>
+<div class="markdown-heading"><h1 class="heading-element">Manual / Command-Line Usage</h1><a aria-label="Permalink: Manual / Command-Line Usage" class="anchor" href="#manual--command-line-usage" id="user-content-manual--command-line-usage"><svg aria-hidden="true" class="octicon octicon-link" data-component="Octicon" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p>The following properties can be manually specified in the <a class="internal present" href="/m/Null-MC/PixelGraph/wiki/Material-Properties">Material Properties</a> file.</p>
+<div class="highlight highlight-source-yaml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="normal:
+  filter: sobel3
+  strength: 1.0"><pre><span class="pl-ent">normal</span>:
+  <span class="pl-ent">filter</span>: <span class="pl-s">sobel3</span>
+  <span class="pl-ent">strength</span>: <span class="pl-c1">1.0</span></pre></div>
+<p>To pre-bake the normal map, you can run the following command.</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pixelgraph generate normal <options>"><pre class="notranslate"><code>pixelgraph generate normal &lt;options&gt;
+</code></pre></div>
+<p>TODO</p>
+
+              </div>
+
+           <h6>⚠️ **GitHub.com Fallback** ⚠️</h6> </div>
+        </article>
+        <nav id="index">
+            <a href="/m/Null-MC/PixelGraph/wiki_index">🗂️ Page Index for this GitHub Wiki</a>
+        </nav>
+    </div>
+</body>
+
+</html>
